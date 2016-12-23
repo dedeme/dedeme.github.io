@@ -1,20 +1,22 @@
 main = {};
-(function (ns) {
+(ns => {
   "use strict";
 
-  ns.load = function (paths, action) {
+  ns.load = (paths, action) => {
     var scripts, load, loads;
 
     scripts = [];
 
-    load = function (path, action) {
+    load = (path, action) => {
       var head, path, element;
 
       head = document.getElementsByTagName("head")[0];
 
-      for (path in scripts) {
-        return;
-      }
+      scripts.forEach(item =>  {
+        if (item === path) {
+          return;
+        }
+      });
 
       if (path.substring(path.length - 3) === ".js") {
         element = document.createElement('script');
@@ -30,13 +32,13 @@ main = {};
       }
 
       head.appendChild(element);
-      scripts.push(path)
-      element.onload = function () {
+      scripts.push(path);
+      element.onload = () => {
         action();
-      }
+      };
     };
 
-    loads = function () {
+    loads = () => {
       if (paths.length === 0) {
         action();
       } else {
@@ -46,13 +48,16 @@ main = {};
     loads();
   }
 
-  ns.init = function () {
-    main.load([
-        "css/main.css",
-        "js/lib.js"
-      ], function () {
-        lib.alert();
-      }
-    );
+  ns.init = (root, action) => {
+    var libs;
+
+    libs = [
+      "css/main.css",
+      "js/lib.js"
+    ];
+    libs.forEach((item, ix) => {
+      libs[ix] = root + item;
+    });
+    main.load(libs, action);
   }
 })(main);

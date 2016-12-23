@@ -1,0 +1,68 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="../js/main.js"></script>
+  <script>
+    function test () {
+//      alert(lib.toExponential(+"-3.21623412412e+9" - 1,11));
+      spans = Array.from(document.getElementsByTagName("span"));
+      spans.forEach(item => {
+        if (item.getAttribute("id") === "t") {
+          exAc = item.innerHTML.split(";");
+          item.innerHTML = exAc[0] + " === " + exAc[1] +
+            " => " + eval(exAc[0] + " === " + exAc[1]);
+        }
+      });
+    }
+  </script>
+</head>
+<body onload="main.init('../', test);">
+  <p><b>Number:</b></p>
+  <p>
+  <span id="t">"3.45";lib.toFixed(3.445,2)</span><br>
+  <span id="t">"-3.25";lib.toFixed(-3.25499,2)</span><br>
+  <span id="t">"3.25";lib.toFixed(3.245,2)</span><br>
+
+  <span id="t">"0.0";lib.toFixed(-0,1)</span><br>
+  <span id="t">"0.0";lib.toFixed(-0.0,1)</span><br>
+  <span id="t">"0.0";lib.toFixed(0.0,1)</span><br>
+  <span id="t">"1.28";lib.toFixed(1.275,2)</span><br>
+  <span id="t">"0.1";lib.toFixed(0.09,1)</span><br>
+  <span id="t">"1.27";lib.toFixed(1.27499,2)</span><br>
+  <span id="t">"3216234125.12";lib.toFixed(3216234125.124,2)</span><br>
+
+  <span id="t">"0";lib.toFixed(0,0)</span><br>
+  <span id="t">"0";lib.toFixed(-0,0)</span><br>
+  <span id="t">"0.00";lib.toFixed(0,2)</span><br>
+  <span id="t">"0.00";lib.toFixed(-0,2)</span><br>
+  <span id="t">"0.10";lib.toFixed(0.1,2)</span><br>
+  <span id="t">"-0.10";lib.toFixed(-0.1,2)</span><br>
+  <span id="t">"0";lib.toFixed(0.1,0)</span><br>
+  <span id="t">"-0";lib.toFixed(-0.1,0)</span><br>
+  <span id="t">"3.11";lib.toFixed(3.112,2)</span><br>
+  <span id="t">"-3.12";lib.toFixed(-3.115,2)</span><br>
+  <span id="t">"3";lib.toFixed(3.112,0)</span><br>
+  <span id="t">"3";lib.toFixed(3.115,0)</span><br>
+  <span id="t">"12233.11";lib.toFixed(12233.112,2)</span><br>
+  <span id="t">"-12233.12";lib.toFixed(-12233.115,2)</span><br>
+  <span id="t">"345112233";lib.toFixed(345112233.112,0)</span><br>
+  <span id="t">"345112233";lib.toFixed(345112233.115,0)</span><br>
+  </p>
+  <p>
+  <span id="t">"3.45e+0";lib.toExponential(3.445,2)</span><br>
+  <span id="t">"-3.25e+0";lib.toExponential(-3.25499,2)</span><br>
+  <span id="t">"3.25e+0";lib.toExponential(3.245,2)</span><br>
+
+  <span id="t">"0.0e+0";lib.toExponential(-0,1)</span><br>
+  <span id="t">"0.0e+0";lib.toExponential(-0.0,1)</span><br>
+  <span id="t">"0.0e+0";lib.toExponential(0.0,1)</span><br>
+  <span id="t">"1.28e+0";lib.toExponential(1.275,2)</span><br>
+  <span id="t">"9.0e-2";lib.toExponential(0.09,1)</span><br>
+  <span id="t">"1.27e+0";lib.toExponential(1.27499,2)</span><br>
+  <span id="t">"3.21623412512e+9";lib.toExponential(3216234125.124,11)</span><br>
+  <span id="t">"-3.21623412512e+9";lib.toExponential(-3216234125.124,11)</span><br>
+  <span id="t">"-3.21623412512e+9";
+    lib.toExponential(+"-3.21623412412e+9" - 1,11)</span><br>
+  </p>
+</body>
+</html>
