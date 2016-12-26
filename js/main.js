@@ -2,9 +2,25 @@ main = {};
 (ns => {
   "use strict";
 
-  ns.load = (paths, action) => {
+  var heading, loading;
+
+  heading = root => {
+    var head, element;
+
+    head = document.getElementsByTagName("head")[0];
+
+    element = document.createElement("link");
+    element.setAttribute("rel", "icon");
+    element.setAttribute("type", "image/png");
+    element.setAttribute("href", root + "img/favicon.png");
+    head.appendChild(element);
+
+  }
+
+  loading = (paths, action) => {
     var scripts, load, loads;
 
+    action = action ? action : () => { return; };
     scripts = [];
 
     load = (path, action) => {
@@ -51,6 +67,8 @@ main = {};
   ns.init = (root, action) => {
     var libs;
 
+    heading(root);
+
     libs = [
       "css/main.css",
       "js/lib.js"
@@ -58,6 +76,6 @@ main = {};
     libs.forEach((item, ix) => {
       libs[ix] = root + item;
     });
-    main.load(libs, action);
+    loading(libs, action);
   }
 })(main);
