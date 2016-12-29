@@ -64,6 +64,10 @@ main = {};
     loads();
   }
 
+  ns.ex = () => {
+    ex.init();
+  }
+
   ns.init = (root, action) => {
     var libs;
 
@@ -71,7 +75,9 @@ main = {};
 
     libs = [
       "css/main.css",
-      "js/lib.js"
+      "js/lib.js",
+      "js/dfvals.js",
+      "js/ex.js"
     ];
     libs.forEach((item, ix) => {
       libs[ix] = root + item;
