@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="author" content="ºDeme" />
-  <title>Motion in one dimension</title>
+  <title>Motion in One Dimension</title>
 	<script type="text/javascript"
     src="../../js/main.js"></script>
   </script>
@@ -24,9 +24,11 @@
   <td><big>~</big></td>
   <td><a href="index.html">Up</a></td>
   <td><big>~</big></td>
+  <td><a href="gravityAndMechanicalEnergy.html">
+    Gravity and Mechanical Energy</a></td>
 </tr></table>
 <hr>
-<h1 id="units">Motion in one dimension</h1>
+<h1>Motion in One Dimension</h1>
 <hr>
 <table>
 <tr><td colspan="2"><a class="menu1" href="#frame-reference">
@@ -42,7 +44,7 @@
 <tr><td colspan="2"><a class="menu1" href="#graphics">
   Graphics</a></td></tr>
 <tr><td colspan="2"><a class="menu1" href="#equations">
-  Equations of constant acceleration</a></td></tr>
+  Equations with constant acceleration</a></td></tr>
 <tr><td colspan="2"><a class="menu1" href="#final-exercises">
   Exercises</a></td></tr>
 </table>
@@ -174,7 +176,7 @@
   $x_0=0$, $v_0 = 0$, $a=5$<br>
   <img src="img/motionInOneDimension-graphics-4.png" class="frame" /><br>
 </p>
-<h2 id="equations">Equations of constant acceleration
+<h2 id="equations">Equations with constant acceleration
   .<span class="top"><a href="#top"> Top </a></span>.</h2>
 <p>
 </p>
@@ -223,6 +225,15 @@
       + \dfrac{v^2_i}{2a}$<br>
   $2a\Delta x = -2v^2_i + v^2_f+v^2_i$<br>
   $v^2_f = v^2_i + 2a\Delta x$
+</p>
+<h3>Exercises</h3>
+<p>
+  <a href="#ex-5">Exercise 5</a><br>
+  <a href="#ex-6">Exercise 6</a><br>
+  <a href="#ex-7">Exercise 7</a><br>
+  <a href="#ex-8">Exercise 8</a><br>
+  <a href="#ex-9">Exercise 9</a><br>
+</p>
 <hr>
 <h2 id="final-exercises">Exercises
   .<span class="top"><a href="#top"> Top </a></span>.</h2>
@@ -231,6 +242,11 @@
   <a href="#ex-2">Exercise 2</a><br>
   <a href="#ex-3">Exercise 3</a><br>
   <a href="#ex-4">Exercise 4</a><br>
+  <a href="#ex-4">Exercise 5</a><br>
+  <a href="#ex-4">Exercise 6</a><br>
+  <a href="#ex-7">Exercise 7</a><br>
+  <a href="#ex-8">Exercise 8</a><br>
+  <a href="#ex-9">Exercise 9</a><br>
 </p>
 <div id="ex-1"></div>
 <p></p>
@@ -239,6 +255,16 @@
 <div id="ex-3"></div>
 <p></p>
 <div id="ex-4"></div>
+<p></p>
+<div id="ex-5"></div>
+<p></p>
+<div id="ex-6"></div>
+<p></p>
+<div id="ex-7"></div>
+<p></p>
+<div id="ex-8"></div>
+<p></p>
+<div id="ex-9"></div>
 <hr>
 <div class="copy"><a class="copy" href="https://creativecommons.org/licenses/by/4.0/">
   - &copy; &deg;Deme. Units -</a></div>
@@ -500,8 +526,160 @@
     $\Delta v = v_0 - v_1 = $ !!dv4! $m \cdot s^{-1}$<br>
     $\Delta t = t_3 = $ !!t3! $s$<br>
     $a = \frac{\displaystyle \Delta v}{\displaystyle \Delta t} =$
-      <u>!!a4!</u> $m \cdot s^{-2}$<br>
+      <u>!!a4!</u> $m \cdot s^{-2}$
   </p>
 </div>
+<!-- 5 -------------------------------------------------------------->
+<div id="dfex-5">
+  v0;n;5;15;0<br>
+  a;n;0.5;1.5;1<br>
+  t;n;5;15;0<br>
+  vf;n=;!!v0! + !!a! * !!t!;2<br>
+####
+  <p>
+    A car starts off at !!v0! $m \cdot s^{-1}$ and accelerates at !!a!
+    $m \cdot s^{-2}$ for 10 s. What is its final velocity?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v_i =$ !!v0! $m \cdot s^{-1}$<br>
+    $a =$ !!a! $m \cdot s^{-2}$<br>
+    $t =$ !!t! $s$<br>
+    $v_f =$ ? $m \cdot s^{-1}$
+  </p>
+  <p>
+    <i>Calculus</i>:<br>
+    $v_f = v_i + at =$ <u>!!vf!</u> $m \cdot s^{-1}$
+</div>
+<!-- 6 -------------------------------------------------------------->
+<div id="dfex-6">
+  a;n;0.5;1.5;1<br>
+  t;n;5;15;0<br>
+  x;n=;0.5 * !!a! * !!t! * !!t!<br>
+####
+  <p>
+    A train starts from rest, and accelerates at !!a! $m \cdot s^{-2}$ for
+    !!t! $s$. How far does it move?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $a =$ !!a! $m \cdot s^{-2}$<br>
+    $t =$ !!t! $s$<br>
+    $v_i=$ 0 $m \cdot s^{-1}$<br>
+    $\Delta x=$ ? $m$
+  </p>
+  <p>
+    <i>Calculus</i>:<br>
+    $\Delta x= v_i t + \dfrac{1}{2} at^2 =$ <u>!!x!</u> $m$
+  </p>
+</div>
+<!-- 7 -------------------------------------------------------------->
+<div id="dfex-7">
+  v;n;20;40;0<br>
+  t;n;5;15;0<br>
+  x;n=;!!v! * !!t!<br>
+####
+  <p>
+    A bus is going !!v! $m \cdot s^{-1}$ and stops in !!t! $s$. What is its
+    stopping distance for this speed?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v=$ !!v! $m \cdot s^{-1}$<br>
+    $t =$ !!t! $s$<br>
+    $\Delta x=$ ? $m$
+  </p>
+  <p>
+    <i>Calculus</i>:<br>
+    $\Delta x= v t =$ <u>!!x!</u> $m$
+  </p>
+</div>
+<!-- 8 -------------------------------------------------------------->
+<div id="dfex-8">
+  a;n;2;6;1<br>
+  vi;n;20;40;0<br>
+  t;n;5;20;0<br>
+  vf;n=;!!vi! + !!a! * !!t!;1<br>
+  xA;n=;(!!vi! + !!vf!) * !!t! / 2;2<br>
+  xB;n=;!!vi! * !!t! + 0.5 * !!a! * !!t! * !!t!;2<br>
+####
+  <p>
+    A motorcycle has a uniform acceleration of !!a! $m \cdot s^{-2}$ . Assume
+    the motorcycle has an initial velocity of !!vi! $m \cdot s^{-1}$ .
+    Determine the velocity and displacement at the end of !!t! s.
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $a=$ !!a! $m \cdot s^{-2}$<br>
+    $v_i=$ !!vi! $m \cdot s^{-1}$<br>
+    $t =$ !!t! $s$<br>
+    $v_f =$ ? $m \cdot s^{-1}$<br>
+    $\Delta x =$ ? $m$
+  </p>
+  <p>
+    <i>Calculus of $v_f$</i> :<br>
+    $v_f = v_i + a t =$ <u>!!vf!</u> $m \cdot s^{-1}$
+  </p>
+  <p>
+    <i>Calculus of $\Delta x$</i> :<br>
+    (1) $\Delta x = \dfrac {v_i + v_f}{2} t =$ <u>!!xA!</u> $m$<br>
+    (2) $\Delta x = v_i t + \dfrac {1}{2} a t =$ !!xB! $m$
+  </p>
+</div>
+<!-- 9 -------------------------------------------------------------->
+<div id="dfex-9">
+  vi;n;20;40;0<br>
+  a;n;-10;-20;2<br>
+  t;n;0.4;1;2<br>
+
+  #vi;n=;10;0<br>
+  #a;n=;-1.25;2<br>
+  #t;n=;0.5;2<br>
+
+  x1;n=;!!vi! * !!t!;2<br>
+
+  ix;n;15;45;2<br>
+  xc;n=;!!x1! + !!ix!;0<br>
+
+  #xc;n=;50;0<br>
+
+  x2;n=;(!!vi! * !!vi!) / (-2 * !!a!);2<br>
+  xt;n=;!!x1! + !!x2!;1<br>
+  r;=;!!xt! &lt; !!xc! ? "not" : ""<br>
+####
+  <p>
+    A truck is travelling at a constant velocity of !!vi! $m \cdot s^{-1}$
+    when the driver sees a child !!xc! $m$ in front of him in the road. He
+    hits the brakes to stop the truck. The truck accelerates at a rate of
+    !!a! $m \cdot s^{-2}$  . His reaction time to hit the brakes
+    is !!t! seconds. Will the truck hit the child?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v_i=$ !!vi! $m \cdot s^{-1}$<br>
+    $x_C =$ !!xc! $m$<br>
+    $a =$ !!a! $m \cdot s^{-2}$<br>
+    $t =$ !!t! $s$<br>
+  </p>
+  <p>
+    <i>Calculus of travelled distance before hitting brackes</i>:<br>
+    $\Delta x_1 = v_i t = $ !!x1! $m$
+  </p>
+  <p>
+    <i>Calculus of travelled distance until slowing down to 0</i>:<br>
+    $v^2_f = v^2_i + 2a\Delta x_2 \rightarrow
+      \Delta x_2 = \dfrac {v^2_f - v^2_i}{2a} =$ !!x2! $m$
+  <p>
+    <i>Calculus of total distance</i>:<br>
+    $\Delta x_T = \Delta x_1 + \Delta x_2 = $ !!xt! $m$<br>
+    <u>The truck will !!r! hit the child.</u>
+  </p>
+</div>
+
 </body>
 </html>

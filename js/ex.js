@@ -19,7 +19,7 @@ ex = {};
         return ix === -1 ? [tx] : [tx.substring(0, ix), tx.substring(ix + 1)];
       }
 
-      item = item.trim();
+      item = item.trim().replace(/&gt;/g, ">").replace(/&lt;/g, "<");
       if (item === "" || item.charAt(0) == "#") {
         return;
       }

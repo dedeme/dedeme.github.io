@@ -1,0 +1,176 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="ºDeme" />
+  <title>Gravity and Mechanical Energy</title>
+	<script type="text/javascript"
+    src="../../js/main.js"></script>
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body id="top" onload="main.init('../../', main.ex);">
+<table><tr>
+  <td><a href="motionInOneDimension.html">
+    Motion in One Dimension</a></td>
+  <td><big>~</big></td>
+  <td><a href="index.html">Up</a></td>
+  <td><big>~</big></td>
+</tr></table>
+<hr>
+<h1>Gravity and Mechanical Energy</h1>
+<hr>
+<table>
+<tr><td colspan="2"><a class="menu1" href="#weight">
+  Weight</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#final-exercises">
+  Exercises</a></td></tr>
+</table>
+<hr>
+
+<h2 id="weight">Weight
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  Such
+</p>
+
+
+<hr>
+<h2 id="final-exercises">Exercises
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  <a href="#ex-1">Exercise 1</a><br>
+  <a href="#ex-2">Exercise 2</a><br>
+</p>
+<div id="ex-1"></div>
+<p></p>
+<div id="ex-2"></div>
+<hr>
+<div class="copy"><a class="copy" href="https://creativecommons.org/licenses/by/4.0/">
+  - &copy; &deg;Deme. Units -</a></div>
+
+<!-- Exercises ------------------------------------------------------>
+<!-- 1 -------------------------------------------------------------->
+<div id="dfex-1">
+  x;n;2;5;1<br>
+  v0;n;3;6;2<br>
+  t;n=;!!x! * 1000 /(!!v0! * 60);1<br>
+  xm;n=;!!x!*1000;0<br>
+  ts;n=;!!t!*60;0<br>
+  xt;n=;!!xm! - !!xm!;0<br>
+  tt;n=;!!ts! + !!ts!;0<br>
+  v;n=;!!xt!/!!tt!;2<br>
+  d;n=;!!xm! + !!xm!;0<br>
+  s;n=;!!d!/!!tt!;2
+####
+  <p>
+    Peter walks from home !!x! km. in !!t! minutes. Then he turns around and
+    walks back along the same path, also in !!t! minutes.<br>
+    Calculate Peter's average velocity and average speed.
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    Walk out: $x_1$ = !!x! km.; $t_1$ = !!t! minutes.<br>
+    Walk back: $x_2$ = !!x! km.; $t_2$ = !!t! minutes.
+  </p>
+  <p>
+    <i>Set units</i>:<br>
+    $x_1 =$ !!x! $\times$ 1000 $=$ !!xm! $m$<br>
+    $t_1 =$ !!t! $\times$ 60 $=$ !!ts! $s$<br>
+    $x_2 =$ !!x! $\times$ 1000 $=$ !!xm! $m$<br>
+    $t_2 =$ !!t! $\times$ 60 $=$ !!ts! $s$
+  </p>
+  <p>
+    <i>Average velocity</i>:<br>
+    $\Delta x = x_1 - x_2 =$ !!xt! $m$<br>
+    $\Delta t = t_1 + t_2 =$ !!tt! $s$<br>
+    $v = \frac{\displaystyle \Delta x}{\displaystyle \Delta t} =$
+      <u>!!v!</u> $m \cdot s^{-1}$<br>
+  </p>
+  <p>
+    <i>Average speed</i>:<br>
+    $d = x_1 + x_2 =$ !!d! $m$<br>
+    $speed = \frac{\displaystyle d}{\displaystyle \Delta t}$ =
+      <u>!!s!</u> $m \cdot s^{-1}$<br>
+  </p>
+</div>
+
+<!-- 2 -------------------------------------------------------------->
+<div id="dfex-2">
+  diam;n;2000;5000;0<br>
+  v0;n;0.83;2.5;2<br>
+  r;n=;!!diam!/(2 * Math.PI);0<br>
+  t;n=;!!diam!/!!v0!;0<br>
+
+  #;r;n=;100;0<br>
+  #;t;n=;120;0<br>
+
+  speed;n=;!!r! * 2 * Math.PI / !!t!;2<br>
+  v;n=;Math.pow(!!r! * !!r! * 2, 0.5) / (!!t! / 4);2<br>
+####
+  <p>
+    <img src="img/motionInOneDimension-e2.png" class="frame" /><br>
+    A man runs around a circular track of radious !!r! $m$. It takes him !!t!
+    $s$ to complete a revolution of the track. If he runs at constant speed,
+    calculate:
+  </p>
+  <ol>
+    <li>His average speed.</li>
+    <li>His instantaneous velocity at point A.</li>
+    <li>His instantaneous velocity at point B.</li>
+    <li>His average velocity between points A and B.</li>
+    <li>His average velocity during a revolution.</li>
+  </ol>
+####
+  <p>
+    <i>Data</i>:<br>
+    $r = $ !!r! $m$<br>
+    $\Delta t =$ !!t! $s$
+  </p>
+  <p>
+    1. <i>Average speed</i>:<br>
+    $d = r \times 2\pi$<br>
+    $speed = \frac{\displaystyle d}{\displaystyle \Delta t} =
+      \frac{\displaystyle r \times 2\pi}{\displaystyle \Delta t}$ =
+      <u>!!speed!</u> $m \cdot s^{-1}$<br>
+  </p>
+  <p>
+    2. <i>Instantaneous velocity at A</i>:<br>
+    As man's speed is constant, if instantaneous velocity at point A is
+    <u>!!speed!</u> $m \cdot s^{-1}$ toward West.
+  </p>
+  <p>
+    3. <i>Instantaneous velocity at B</i>:<br>
+    As man's speed is constant, if instantaneous velocity at point B is
+    <u>!!speed!</u> $m \cdot s^{-1}$ toward South.
+  </p>
+  <p>
+    4. <i>Average velocity between A and B</i>:<br>
+    <img src="img/motionInOneDimension-e2b.png" class="frame" /><br>
+    $\Delta x = \sqrt{r^2 + r^2}$<br>
+    $\Delta t_4 = \frac{\displaystyle \Delta t}{\displaystyle 4}$<br>
+    $v = \frac{\displaystyle \Delta x}{\displaystyle \Delta t} =
+      \frac{\displaystyle \sqrt{r^2 + r^2}}{\displaystyle \Delta t_4} =$
+      <u>!!v!</u> $m \cdot s^{-1}$ toward Southwest.
+  </p>
+  <p>
+    5. <i>Average velocity after a revolution</i>:<br>
+    As distance is 0 in this case,<br>
+    $\Delta x = 0$ $m$ and<br>
+    $v = \frac{\displaystyle \Delta x}{\displaystyle \Delta t} =$
+      <u>0.00</u> $m \cdot s^{-1}$
+  </p>
+</div>
+
+</body>
+</html>
