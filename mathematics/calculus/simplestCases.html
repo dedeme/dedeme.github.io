@@ -1,0 +1,131 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="ºDeme" />
+  <title>Simplest cases</title>
+	<script type="text/javascript"
+    src="../../js/main.js"></script>
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body id="top" onload="main.init('../../', main.ex);">
+<table><tr>
+  <td><a href="index.html">Up</a></td>
+  <td><big>~</big></td>
+  <td><a href="motionInOneDimension.html"</a><s>Undetermined</s><td>
+</tr></table>
+<hr>
+<h1>Simplest cases</h1>
+<hr>
+<table>
+<tr><td colspan="2"><a class="menu1" href="#case1">
+  Case 1</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#case2">
+  Case 2</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#generalization">
+  Generalization</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#exercises">
+  Exercises</a></td></tr>
+</table>
+
+<hr>
+<h2 id="case1">Case 1
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+
+<table><tr><td class="frame">$y = x^2$</td></tr></table>
+<p>
+  $y + dy = (x + dx)^2 = x^2 + 2x\cdot dx + \color{red}{(dx)^2} =
+    x^2 + 2x\cdot dx$<br><br>
+  $dy = 2x\cdot dx$
+</p>
+<table><tr><td class="frame">$\dfrac{dy}{dx} = 2x$</td></tr></table>
+
+<hr>
+<h2 id="case2">Case 2
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+
+<table><tr><td class="frame">$y = x^3$</td></tr></table>
+<p>
+  $y + dy = (x + dx)^3 = x^3 + 3x^2\cdot dx + \color{red}{3x(dx)^2} +
+    \color{red}{(dx)^3} = x^3 + 3x^2\cdot dx$<br><br>
+  $dy = 3x^2\cdot dx$
+</p>
+<table><tr><td class="frame">$\dfrac{dy}{dx} = 3x^2$</td></tr></table>
+
+<hr>
+<h2 id="generalization">Generalization
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+
+<table><tr><td class="frame">$y = x^n$</td></tr></table>
+<p>
+  $y + dy = (x + dx)^n = x^n + nx^{n-1}\cdot dx + \color{red}{...} +
+    \color{red}{(dx)^n} = x^n + nx^{n-1}\cdot dx$<br><br>
+  $dy = nx^{n-1}\cdot dx$
+</p>
+<table><tr><td class="frame">$\dfrac{dy}{dx} = nx^{n-1}$</td></tr></table>
+<p>
+  This formula is applicable to negative and fractional powers.
+</p>
+
+<hr>
+<h2 id="exercises">Exercises
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  <a href="#ex-1">Exercise 1</a><br>
+  <a href="#ex-2">Exercise 2</a><br>
+  <a href="#ex-3">Exercise 3</a><br>
+  <a href="#ex-4">Exercise 4</a><br>
+  <a href="#ex-4">Exercise 5</a><br>
+  <a href="#ex-4">Exercise 6</a><br>
+  <a href="#ex-7">Exercise 7</a><br>
+  <a href="#ex-8">Exercise 8</a><br>
+  <a href="#ex-9">Exercise 9</a><br>
+</p>
+<div id="ex-1"></div>
+<p></p>
+<div id="ex-2"></div>
+<p></p>
+<div id="ex-3"></div>
+<p></p>
+<div id="ex-4"></div>
+<p></p>
+<div id="ex-5"></div>
+<p></p>
+<div id="ex-6"></div>
+<p></p>
+<div id="ex-7"></div>
+<p></p>
+<div id="ex-8"></div>
+<p></p>
+<div id="ex-9"></div>
+<hr>
+<div class="copy"><a class="copy" href="https://creativecommons.org/licenses/by/4.0/">
+  - &copy; &deg;Deme. Units -</a></div>
+
+<!-- Exercises ------------------------------------------------------>
+<!-- 1 -------------------------------------------------------------->
+<div id="dfex-1">
+  n;n;2;20;0<br>
+  n1;n=;!!n!-1;0<br>
+####
+  <p>
+    Differenciate: <i>y = x<sup>!!n!</sup></i>
+  </p>
+####
+  <p>
+    $\dfrac{dy}{dx} = $ <i>!!n!x<sup>!!n1!</sup></i>
+  </p>
+</div>
+
+</body>
+</html>
