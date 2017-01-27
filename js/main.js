@@ -14,7 +14,6 @@ main = {};
     element.setAttribute("type", "image/png");
     element.setAttribute("href", root + "img/favicon.png");
     head.appendChild(element);
-
   }
 
   loading = (paths, action) => {

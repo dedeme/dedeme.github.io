@@ -30,69 +30,56 @@
 <h1>Transverse Pulses</h1>
 <hr>
 <table>
-<tr><td colspan="2"><a class="menu1" href="#force">
-  Force</a></td></tr>
-<tr><td colspan="2"><a class="menu1" href="#weight">
-  Weight</a></td></tr>
-<tr><td colspan="2"><a class="menu1" href="#acceleration">
-  Acceleration Due to Gravity</a></td></tr>
-<tr><td colspan="2"><a class="menu1" href="#energy">
-  Energy</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#pulse">
+  Pulse, pulse length and amplitude</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#speed">
+  Speed</a></td></tr>
 <tr><td colspan="2"><a class="menu1" href="#final-exercises">
   Exercises</a></td></tr>
 </table>
 <hr>
 
-<h2 id="force">Force
+<h2 id="pulse">Pulse, pulse length and amplitude
   .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<dl>
+  <dt>Pulse</dt>
+    <dd>A pulse is a single disturbance that moves through a medium</dd>
+  <dt>Pulse length</dt>
+    <dd>It is a measurement of how long the pulse is.</dd>
+  <dt>Amplitud</dt>
+    <dd>The amplitude of a pulse is a measurement of how far the medium is
+    displaced from rest.</dd>
+</dl>
+<p>
+  <img class="frame" src="img/transversePulses-1.png">
+</p>
+
+<h2 id="speed">Speed
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<dl>
+  <dt>speed</dt>
+    <dd>Pulse speed is the distance a pulse travels in a specific time.</dd>
+</dl>
 <p>
   <table><tr><td class="frame">
-  $F = ma \Rightarrow kg \cdot m \cdot s^{-2} = N$
+    $v=\dfrac{d}{t}$
   </td></tr></table>
 </p>
-<h2 id="weight">Weight
-  .<span class="top"><a href="#top"> Top </a></span>.</h2>
 <p>
   <table><tr><td class="frame">
-    $Weight = F_g = mg \Rightarrow kg \cdot m \cdot s^{-2} = N$
+  <i>Important</i>: The pulse speed depends on the properties of the medium
+  and <u>not</u> on the amplitude or pulse length of the pulse.
   </td></tr></table>
-  where<br>
-  $m$ = Mass of an object.<br>
-  $g$ = Acceleration caused for a planet (on the Earth is 9.8 $m \cdot s^{-2}$)
 </p>
+<h3>Exercises</h3>
 <p>
-  Therefore 1 kg exerts a gravitational force, this is it has a weigth, of
-  9.8 $N$ on the surface of the Earth.
+  <a href="#ex-1">Exercise 1</a><br>
+  <a href="#ex-2">Exercise 2</a><br>
+  <a href="#ex-3">Exercise 3</a><br>
 </p>
-<p>
-  A mass has different weight in different planets, since these have different
-  gravitational forces.
-</p>
-<table>
-  <tr>
-    <td class="frame"><i>Planet</i></td>
-    <td class="frame">
-      <i>Gravitational Acceleration<br>(multiples of $g$ on Earth)</i></td>
-  </tr><tr>
-    <td class="frame">Mercury</td><td class="frame">0.376</td>
-  </tr><tr>
-    <td class="frame">Venus</td><td class="frame">0.903</td>
-  </tr><tr>
-    <td class="frame">Earth</td><td class="frame">1</td>
-  </tr><tr>
-    <td class="frame">Mars</td><td class="frame">0.38</td>
-  </tr><tr>
-    <td class="frame">Jupiter</td><td class="frame">2.34</td>
-  </tr><tr>
-    <td class="frame">Saturn</td><td class="frame">1.16</td>
-  </tr><tr>
-    <td class="frame">Uranus</td><td class="frame">1.15</td>
-  </tr><tr>
-    <td class="frame">Neptune</td><td class="frame">1.19</td>
-  </tr><tr>
-    <td class="frame">Pluto</td><td class="frame">0.066</td>
-  </tr>
-</table>
+
+
+
 
 <h2 id="acceleration">Acceleration Due to Grabity
   .<span class="top"><a href="#top"> Top </a></span>.</h2>
@@ -208,189 +195,75 @@
 <!-- Exercises ------------------------------------------------------>
 <!-- 1 -------------------------------------------------------------->
 <div id="dfex-1">
-  x;n;10;20;2<br>
-  #x;n=;15;0<br>
-  t;n=;Math.pow(2 * !!x!/9.8, 1/2);2<br>
-  v;n=;!!t! * 9.8;2<br>
+  d;n;2;10;0<br>
+  t;n;4;25;0<br>
+  #d;n=;2;0<br>
+  #t;n=;4;0<br>
+  v;n=;!!d!/!!t!;2<br>
 ####
   <p>
-    A ball is dropped from the balcony of a tall building. The balcony is
-    !!x! $m$ above the ground. Assuming gravitational acceleration is 9,8
-    $m \cdot s^{-2}$, find:
+    A pulse covers a distance of !!d! $m$ in !!t! $s$ on a heavy rope.
+    Calculate the pulse speed.
   </p>
-  <ol>
-    <li>The time required for the ball to hit the ground.</li>
-    <li>The velocity with which it hits the ground.</li>
-  </ol>
 ####
   <p>
     <i>Data</i>:<br>
-    $\Delta x =$ !!x! $m$<br>
-    $a = g =$ 9,8 $m \cdot s^{-2}$ downward.
+    $d =$ !!d! $m$<br>
+    $t =$ !!t! $s$<br>
   </p>
   <p>
-    <i>Calculus of time</i>:<br>
-    As $v_i =$ 0 $m \cdot s^{-1}$ then<br>
-    $v_f = v_i + at \rightarrow v_f = at \rightarrow v^2_f = a^2t^2$<br>
-    $v^2_f = v^2_i + 2a\Delta x = 2a\Delta x$<br>
-    $a^2t^2 = 2a\Delta x$<br>
-    $t^2 = \dfrac{2\Delta x}{a} \rightarrow$<br>
-    $t = \sqrt{\dfrac{2\Delta x}{a}} = $ <u>!!t!</u> $s$
-  </p>
-  <p>
-    <i>Calculus of velocity</i>:<br>
-    In our case ($v_i =$ 0):<br>
-    $v_f = at = $ <u>!!v!</u> $m \cdot s^{-1}$ downward.
+    <i>Calculus</i>:<br>
+    $v = \dfrac{d}{t} =$ !!v! $m \cdot s^{-1}$
   </p>
 </div>
 
 <!-- 2 -------------------------------------------------------------->
 <div id="dfex-2">
-  t;n;0.5;2;2<br>
-  x;n=;9.8*!!t!*!!t!/2;2<br>
+  v;n;3;15;0<br>
+  t;n;1.5;5;2<br>
+  d;n=;!!v!*!!t!;2<br>
+  d2;n=;!!d!/100;4<br>
 ####
   <p>
-    A stone is dropped from a window. It takes the stone !!t! seconds to reach
-    the ground. How high above the ground is the window?
+    A pulse has a speed of !!v! $cm \cdot s^{-1}$ . How far does it travel in
+    !!t! seconds?
   </p>
-
 ####
   <p>
     <i>Data</i>:<br>
-    $t =$ !!t! $s$<br>
-    $a = g =$ 9,8 $m \cdot s^{-2}$ downward.
+    $v =$ !!v! $cm \cdot s^{-1}$<br>
+    $t =$ !!t! $s$
   </p>
-  <i>Calculus</i>:<br>
-    $v_i =$ 0 $m \cdot s^{-1}$<br>
-    $\Delta x = v_it + \dfrac{1}{2}at^2 =$ <u>!!x!</u> $m$
+    <i>Calculus</i>:<br>
+    $v = \dfrac{d}{t} \Rightarrow d = v \cdot t =$ !!d! $cm$ = !!d2! $m$
   <p>
 
   </p>
 </div>
-
 <!-- 3 -------------------------------------------------------------->
 <div id="dfex-3">
-  m;n;50;150;2<br>
-  x;n;3;15;1<br>
-  #m;n=;100;0<br>
-  #x;n=;5;0<br>
-  pe;n=;9.8 * !!m! * !!x!;2<br>
-  v;n=;Math.pow(2 * !!pe! / !!m!, 0.5);2<br>
-  v2;n=;Math.pow(2 * 9.8 * !!x!, 0.5);2<br>
+  v;n;0.3;15;1<br>
+  d;n;100;1500;0<br>
+  d2;n=;!!d!/100;2<br>
+  t;n=;!!d2!/!!v!;4<br>
 ####
   <p>
-  During a flood a tree trunck of mass !!m! $kg$ falls down a waterfall. The
-  waterfall is !!x! $m$ high. If air resistance is ignored, calculate:
-  </p>
-  <ol>
-    <li>The potential energy of the tree trunk at the top of the waterfall.</li>
-    <li>The kinetic energy of the tree trunk at the bottom of the waterfall.
-      </li>
-    <li>The magnitude of the velocity of the tree trunk at the bottom of the
-      waterfall.</li>
-  </ol>
-####
-  <p>
-    <i>Data</i>:<br>
-    $m =$ !!m! $kg$<br>
-    $\Delta x=$ !!x! $m$
-  </p>
-  <p>
-    <i>PE</i>:<br>
-    $a = g =$ 9.8 $m \cdot s^{-2}$<br>
-    $PE = ma\Delta x$ = !!pe! $J$
-  </p>
-  <p>
-    <i>KE</i>:<br>
-    $U = PE =$ !!pe! $J$ at the top.<br>
-    $KE = U =$ !!pe! $J$ at the bottom.
-  </p>
-  <p>
-    <i>v</i>:<br>
-    $KE = \dfrac{1}{2}mv^2 \Rightarrow
-      v = \sqrt{\dfrac{2KE}{m}} =$ <u>!!v!</u> $m \cdot s^{-1}$ downward.<br>
-    or <br>
-    $v = \sqrt{2a\Delta x} =$ <u>!!v2!</u> $m \cdot s^{-1}$ downward.
-  </p>
-
-</div>
-
-<!-- 4 -------------------------------------------------------------->
-<div id="dfex-4">
-  mass;n;1.5;3;1<br>
-  x;n;0.4;0.75;2<br>
-
-  #mass;n=;2;0<br>
-  #x;n=;0.5;1<br>
-
-  v;n=;Math.pow(2 * 9.8 * !!x!,0.5);2<br>
-####
-  <p>
-    <img src="img/gravityAndMechanicalEnergy-1.png" class="frame">
-  </p>
-  <p>
-    A !!mass! $kg$ metal ball is suspended from a rope. If it is released from
-    point A and swings down to the point B (the bottom of its arc), being is
-    height difference <i>X</i> = !!x! $m$:
-  </p>
-  <ol>
-    <li>Show that the velocity of the ball is independent of it mass.</li>
-    <li>Calculate the velocity of the ball at point B.</li>
-  </ol>
-####
-  <p>
-    <i>Data</i>:<br>
-    $m = $ !!mass! $kg$<br>
-    $x = $ !!x! $m$<br>
-  </p>
-  <p>
-    <i>Question 1</i>:<br>
-    $U = KE + PE$<br>
-    For the ball at point A we have: $U = 0 + mg\Delta x$<br>
-    For the ball al point B we have: $U = \dfrac{1}{2}mv^2 + 0$<br>
-    Then by the conservation of energy:<br>
-    $mg\Delta x = \dfrac{1}{2}mv^2 \Rightarrow
-      g\Delta x = \dfrac{1}{2}v^2$ and <br>
-    $v = \sqrt{2g\Delta x}$<br>
-    Therefore $v$ does not dependent of the mass.
-  </p>
-  <p>
-    <i>Question 2</i>:<br>
-    $v = \sqrt{2g\Delta x} =$ !!v! $m \cdot s^{-1}$
-  </p>
-</div>
-
-<!-- 5 -------------------------------------------------------------->
-<div id="dfex-5">
-  m;n;40;60;0<br>
-  v;n;150;250;0<br>
-  x;n=;!!v! * !!v! / (2 * 9.8);2<br>
-####
-  <p>
-    A bullet, mass !!m! g, is shot vertically up in the air with a muzzle
-    velocity of !!v! $m \cdot s^{−1}$ . Use the Principle of Conservation of
-    Mechanical Energy to determine the height that the bullet will reach.
-    Ignore air friction.
+    A pulse has a speed of !!v! $m \cdot s^{-1}$ . How long does it take to
+    cover a distance of !!d! $cm$?
   </p>
 ####
   <p>
     <i>Data</i>:<br>
-    $m = $ !!m! $kg$<br>
-    $v = $ !!v! $m \cdot s^{−1}$<br>
-    $x = $ ? $m$
+    $v =$ !!v! $m \cdot s^{-1}$<br>
+    $d =$ !!d! $cm =$ <u>!!d2!</u> $m$
   </p>
+    <i>Calculus</i>:<br>
+    $v = \dfrac{d}{t} \Rightarrow t = d \cdot v =$ !!t! $s$
   <p>
-    <i>Question 1</i>:<br>
-    $U = KE + PE$<br>
-    For the bullet at the moment of shooting we have:
-      $U = \dfrac{1}{2}mv^2 + 0$<br>
-    For the bullet at maximum height we have: $U = 0 + mg\Delta x$<br>
-    Then by the conservation of energy:<br>
-    $mg\Delta x = \dfrac{1}{2}mv^2 \Rightarrow
-      g\Delta x = \dfrac{1}{2}v^2$ and <br>
-    $\Delta x =  = \dfrac{1}{2g}v^2 =$ !!x! $m$<br>
+
   </p>
 </div>
+
 
 </body>
 </html>
