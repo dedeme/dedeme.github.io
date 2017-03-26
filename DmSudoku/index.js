@@ -119,7 +119,7 @@ Big.prototype = {
 var Dom = function() { };
 Dom.__name__ = true;
 Dom.show = function(o) {
-	dm_Ui.QQ("body").next().removeAll().add(dm_Ui.Q("div").add(o).add(dm_Ui.Q("p").html("&nbsp;")).add(dm_Ui.Q("hr")).add(dm_Ui.Q("table").klass("main").add(dm_Ui.Q("tr").add(dm_Ui.Q("td").add(dm_Ui.Q("a").att("href","../doc/about.html").att("target","blank").html("<small>Help & Credits</small>"))).add(dm_Ui.Q("td").style("text-align: right;font-size: 10px;" + "color:#808080;font-size:x-small;").html("- © ºDeme. DmSudoku (" + Main.version + ") -")))));
+	dm_Ui.QQ("body").next().removeAll().add(dm_Ui.Q("div").add(o).add(dm_Ui.Q("p").html("&nbsp;")).add(dm_Ui.Q("hr")).add(dm_Ui.Q("table").klass("main").add(dm_Ui.Q("tr").add(dm_Ui.Q("td").add(dm_Ui.Q("a").att("href","doc_" + Model.data.lang + "/about.html").html("<small>" + dm_I18n._("Help & Credits") + "</small>"))).add(dm_Ui.Q("td").style("text-align: right;font-size: 10px;" + "color:#808080;font-size:x-small;").html("- © ºDeme. DmSudoku (" + Main.version + ") -")))));
 };
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
@@ -643,7 +643,7 @@ Main.typeNumber = function(n) {
 	}
 };
 Math.__name__ = true;
-var PageType = { __ename__ : true, __constructs__ : ["MainPage","CopyPage","LoadPage","SolvePage","WinPage"] };
+var PageType = { __ename__ : true, __constructs__ : ["MainPage","CopyPage","LoadPage","SolvePage","WinPagex"] };
 PageType.MainPage = ["MainPage",0];
 PageType.MainPage.toString = $estr;
 PageType.MainPage.__enum__ = PageType;
@@ -656,9 +656,9 @@ PageType.LoadPage.__enum__ = PageType;
 PageType.SolvePage = ["SolvePage",3];
 PageType.SolvePage.toString = $estr;
 PageType.SolvePage.__enum__ = PageType;
-PageType.WinPage = ["WinPage",4];
-PageType.WinPage.toString = $estr;
-PageType.WinPage.__enum__ = PageType;
+PageType.WinPagex = ["WinPagex",4];
+PageType.WinPagex.toString = $estr;
+PageType.WinPagex.__enum__ = PageType;
 var Model = function() { };
 Model.__name__ = true;
 Model.linearGame = function(backward,next,forward) {
