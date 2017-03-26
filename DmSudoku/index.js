@@ -507,11 +507,13 @@ Main.saveSudoku = function(ev) {
 Main.upLevel = function(ev) {
 	if(Model.data.level < 5) ++Model.data.level;
 	Main.saveData();
+	if(Model.data.cache[Model.data.level - 1] == null) View.newLink.removeAll().add(View.imgMenu("filenew",dm_I18n._("New"),true)); else View.newLink.removeAll().add(dm_Ui.link(Main.newSudoku).add(View.imgMenu("filenew",dm_I18n._("New"))));
 	View.mkMainMenu();
 };
 Main.downLevel = function(ev) {
 	if(Model.data.level > 1) --Model.data.level;
 	Main.saveData();
+	if(Model.data.cache[Model.data.level - 1] == null) View.newLink.removeAll().add(View.imgMenu("filenew",dm_I18n._("New"),true)); else View.newLink.removeAll().add(dm_Ui.link(Main.newSudoku).add(View.imgMenu("filenew",dm_I18n._("New"))));
 	View.mkMainMenu();
 };
 Main.changeDevice = function(ev) {
