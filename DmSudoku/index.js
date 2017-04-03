@@ -454,12 +454,14 @@ Main.main = function() {
 		}
 	});
 	View.mainShow();
-	var timer = new haxe_Timer(1000);
-	timer.run = function() {
-		++Model.last.time;
-		Main.saveLast();
-		View.timeCell.html(Model.formatScs(Model.last.time));
-	};
+	if(Main.timer == null) {
+		Main.timer = new haxe_Timer(1000);
+		Main.timer.run = function() {
+			++Model.last.time;
+			Main.saveLast();
+			View.timeCell.html(Model.formatScs(Model.last.time));
+		};
+	}
 	var cache = Model.data.cache;
 	var _g2 = 0;
 	while(_g2 < 5) {
