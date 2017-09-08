@@ -1,6 +1,6 @@
 BODY {
   font-family: sans;font-size: 14px;
-  margin-right: 50px; margin-left: 50px;
+  margin-right: 10px; margin-left: 10px;
   margin-top: 5px; background-color: #f0f1f2
 }
 A{
@@ -106,4 +106,13 @@ BUTTON {
   border: 1px solid rgb(110,130,150);
   font-family: sans;font-size: 14px;
   padding: 4px;border-radius: 4px;
+}
+
+#hlist {
+  max-height:0;
+  overflow:hidden;
+  transition:0.5s linear;
+}
+a:focus + #hlist {
+  max-height:15em;
 }
