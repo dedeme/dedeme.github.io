@@ -3620,6 +3620,14 @@ class view_Puzzle {
 							},800);
 						},500);
 					}
+				} else {
+					let g = _gthis.groups.iterator();
+					while(g.hasNext()) {
+						let g1 = g.next();
+						g1.quit();
+					}
+					_gthis.mkGroups();
+					_gthis.update();
 				}
 			});
 			let p = new dm_Point(0,0);
