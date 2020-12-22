@@ -94,6 +94,30 @@ haxe_Exception.__super__ = Error;
 Object.assign(haxe_Exception.prototype, {
 	__class__: haxe_Exception
 });
+class dm_Device {
+	static isMobilf() {
+		return new EReg("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini","i").match($global.navigator.userAgent);
+	}
+	static isMobilHf() {
+		if(dm_Device.isMobilf() && window.screen.orientation != null) {
+			if(window.screen.orientation.type != "landscape-primary") {
+				return window.screen.orientation.type == "landscape-secondary";
+			} else {
+				return true;
+			}
+		} else {
+			return false;
+		}
+	}
+	static screenf() {
+		let ratio = window.devicePixelRatio;
+		if(ratio == null) {
+			return new dm_Dimension(window.screen.width,window.screen.height);
+		}
+		return new dm_Dimension(window.screen.width * ratio | 0,window.screen.height * ratio | 0);
+	}
+}
+dm_Device.__name__ = true;
 class dm_Board {
 	constructor(width,height) {
 		this.canvas = js_Boot.__cast(window.document.createElement("canvas") , HTMLCanvasElement);
@@ -348,27 +372,6 @@ class Cts {
 	static get_levels() {
 		return [I18n._("Easy"),I18n._("Medium"),I18n._("Expert")];
 	}
-	static isMobilf() {
-		return new EReg("Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini","i").match($global.navigator.userAgent);
-	}
-	static isMobilHf() {
-		if(Cts.isMobilf() && window.screen.orientation != null) {
-			if(window.screen.orientation.type != "landscape-primary") {
-				return window.screen.orientation.type == "landscape-secondary";
-			} else {
-				return true;
-			}
-		} else {
-			return false;
-		}
-	}
-	static screenf() {
-		let ratio = window.devicePixelRatio;
-		if(ratio == null) {
-			return new dm_Dimension(window.screen.width,window.screen.height);
-		}
-		return new dm_Dimension(window.screen.width * ratio | 0,window.screen.height * ratio | 0);
-	}
 	static mkDefaultPicture() {
 		let board = new dm_Board(800,600);
 		let ctx = board.canvas.getContext("2d",null);
@@ -572,6 +575,38 @@ var Icon = $hxEnums["Icon"] = { __ename__ : true, __constructs__ : ["AUDIO_OFF",
 	,WIN5: {_hx_index:16,__enum__:"Icon",toString:$estr}
 	,WIN6: {_hx_index:17,__enum__:"Icon",toString:$estr}
 };
+class dm_Audio {
+	constructor(tracks) {
+		this.tracks = tracks;
+		this.ix = 0;
+	}
+	get_channels() {
+		return this.tracks.length;
+	}
+	play() {
+		this.tracks[this.ix++].play();
+		if(this.ix == this.get_channels()) {
+			this.ix = 0;
+		}
+	}
+	static mk(url,channels) {
+		if(channels == null) {
+			channels = 1;
+		}
+		let tracks = [];
+		let _g = 0;
+		let _g1 = channels;
+		while(_g < _g1) {
+			let i = _g++;
+			tracks.push(new Audio(url));
+		}
+		return new dm_Audio(tracks);
+	}
+}
+dm_Audio.__name__ = true;
+Object.assign(dm_Audio.prototype, {
+	__class__: dm_Audio
+});
 class data_Picture {
 	constructor(name,file,author,link) {
 		this.img = null;
@@ -590,16 +625,16 @@ class data_Picture {
 		return new dm_Board(w + partSide * 2,h + partSide * 2).copyFrom(bimg,partSide,partSide);
 	}
 	getMedium() {
-		let div = Cts.isMobilV ? 2.5 : Cts.isMobilH ? 5 : 4;
-		let w = Cts.screen.w / div | 0;
+		let div = dm_Device.isMobilV ? 2.5 : dm_Device.isMobilH ? 5 : 4;
+		let w = dm_Device.screen.w / div | 0;
 		let h = w * 3 / 4 | 0;
 		let bimg = this.img == null ? new dm_Board(w,h).coverFrom(Cts.defaultPicture) : new dm_Board(w,h).coverImage(this.img);
 		return dm_Ui.Q(null,bimg.canvas);
 	}
 	getSmall() {
-		let w = Cts.screen.w / 8 | 0;
+		let w = dm_Device.screen.w / 8 | 0;
 		let h = w * 6 / 8 | 0;
-		if(Cts.isMobilV) {
+		if(dm_Device.isMobilV) {
 			w *= 2;
 			h *= 2;
 		}
@@ -735,14 +770,14 @@ class Loader {
 				path = "";
 			}
 			let r = light ? dm_Ui.lightImg(path) : dm_Ui.img(path);
-			if(Cts.isBig) {
+			if(dm_Device.isBig) {
 				r.style("width:240px;height:240px");
 			} else {
 				r.style("width:120px;height:120px");
 			}
 			return r;
 		}
-		if(Cts.isBig) {
+		if(dm_Device.isBig) {
 			path += "M";
 		}
 		if(light) {
@@ -791,7 +826,7 @@ class Model {
 			js1 = j.toJs();
 			break;
 		}
-		let js2 = dm_Js.wa([js,js1,dm_Js.wi(Model.level.value),dm_Js.wi(Model.group.value),dm_Js.ws(Cts.isMobilH ? "H" : Cts.isMobilV ? "V" : ""),Model.solved.toJs()]);
+		let js2 = dm_Js.wa([js,js1,dm_Js.wi(Model.level.value),dm_Js.wi(Model.group.value),dm_Js.ws(dm_Device.isMobilH ? "H" : dm_Device.isMobilV ? "V" : ""),Model.solved.toJs()]);
 		return dm_B64.encode(js2.to());
 	}
 	static restore(s,withMarks) {
@@ -805,7 +840,7 @@ class Model {
 			Model.page.setValue(pg);
 			Model.level.setValue(lv);
 			Model.group.setValue(gr);
-			if(mv == "H" && !Cts.isMobilH || mv == "V" && !Cts.isMobilV || mv == "" && Cts.isMobil) {
+			if(mv == "H" && !dm_Device.isMobilH || mv == "V" && !dm_Device.isMobilV || mv == "" && dm_Device.isMobil) {
 				Model.orientationChanged.setValue(true);
 			}
 			if(withMarks) {
@@ -918,7 +953,7 @@ class Type {
 Type.__name__ = true;
 class View {
 	static init() {
-		dm_Ui.Q("@head").add(dm_Ui.Q("meta").att("name","lang").att("content",$global.navigator.language)).add(dm_Ui.Q("link").att("rel","stylesheet").att("href",Cts.isBig ? "stylesM.css" : "styles.css").att("type","text/css"));
+		dm_Ui.Q("@head").add(dm_Ui.Q("meta").att("name","lang").att("content",$global.navigator.language)).add(dm_Ui.Q("link").att("rel","stylesheet").att("href",dm_Device.isBig ? "stylesM.css" : "styles.css").att("type","text/css"));
 		dm_Ui.Q("@body").removeAll().add(dm_Ui.Q("table").klass("main").add(dm_Ui.Q("tr").add(View.bodyWg)).add(dm_Ui.Q("tr").add(dm_Ui.Q("td").add(Cts.foot)))).add(View.modalBoxDiv);
 		if(window.screen.orientation != null) {
 			window.screen.orientation.onchange = function(e) {
@@ -1494,7 +1529,7 @@ class data_Piece {
 		let dy = other.pos.y - this.pos.y;
 		let adx = Math.abs(dx);
 		let ady = Math.abs(dy);
-		let dif = Cts.isBig ? this.partSide * 2 : this.partSide;
+		let dif = dm_Device.isBig ? this.partSide * 2 : this.partSide;
 		let side = this.displacement();
 		if(adx < dif) {
 			if(ady > side - dif && ady < side + dif) {
@@ -2323,33 +2358,50 @@ class dm_Sprite {
 		return this;
 	}
 	addMouseDown(fn) {
-		this.canvas.addEventListener("mousedown",fn);
-		this.canvas.addEventListener("touchstart",fn);
+		if(dm_Device.isMobil) {
+			this.canvas.addEventListener("touchstart",fn);
+		} else {
+			this.canvas.addEventListener("mousedown",fn);
+		}
 		return this;
 	}
 	removeMouseDown(fn) {
 		this.canvas.removeEventListener("mousedown",fn);
-		this.canvas.removeEventListener("touchstart",fn);
+		if(dm_Device.isMobil) {
+			this.canvas.removeEventListener("touchstart",fn);
+		}
 		return this;
 	}
 	addMouseUp(fn) {
-		this.canvas.addEventListener("mouseup",fn);
-		this.canvas.addEventListener("touchend",fn);
+		if(dm_Device.isMobil) {
+			this.canvas.addEventListener("touchend",fn);
+		} else {
+			this.canvas.addEventListener("mouseup",fn);
+		}
 		return this;
 	}
 	removeMouseUp(fn) {
-		this.canvas.removeEventListener("mouseup",fn);
-		this.canvas.removeEventListener("touchend",fn);
+		if(dm_Device.isMobil) {
+			this.canvas.removeEventListener("touchend",fn);
+		} else {
+			this.canvas.removeEventListener("mouseup",fn);
+		}
 		return this;
 	}
 	addMouseMove(fn) {
-		this.canvas.addEventListener("mousemove",fn);
-		this.canvas.addEventListener("touchmove",fn);
+		if(dm_Device.isMobil) {
+			this.canvas.addEventListener("touchmove",fn);
+		} else {
+			this.canvas.addEventListener("mousemove",fn);
+		}
 		return this;
 	}
 	removeMouseMove(fn) {
-		this.canvas.removeEventListener("mousemove",fn);
-		this.canvas.addEventListener("touchmove",fn);
+		if(dm_Device.isMobil) {
+			this.canvas.addEventListener("touchmove",fn);
+		} else {
+			this.canvas.removeEventListener("mousemove",fn);
+		}
 		return this;
 	}
 	addMouseOut(fn) {
@@ -3002,14 +3054,14 @@ class view_HelpBox {
 		this.menuDiv = dm_Ui.Q("div");
 		this.bodyDiv = dm_Ui.Q("div");
 		this.wg = dm_Ui.Q("div");
-		this.bodyDiv.klass("frame").style("width: " + (Cts.boardDim.w * 0.8 | 0) + "px;" + ("height: " + (Cts.boardDim.h * 0.8 | 0) + "px;") + "overflow-x: hidden;" + "overflow-y: auto;" + "text-align: left;" + ("padding: " + (Cts.isBig ? 40 : 20) + "px;"));
+		this.bodyDiv.klass("frame").style("width: " + (Cts.boardDim.w * 0.8 | 0) + "px;" + ("height: " + (Cts.boardDim.h * 0.8 | 0) + "px;") + "overflow-x: hidden;" + "overflow-y: auto;" + "text-align: left;" + ("padding: " + (dm_Device.isBig ? 40 : 20) + "px;"));
 		this.box = new dm_ModalBox(this.wg,false);
 		this.menuOption = "index";
 		this.wg.add(dm_Ui.Q("table").klass("main").add(dm_Ui.Q("tr").add(dm_Ui.Q("td").add(this.menuDiv).add(this.bodyDiv))));
 	}
 	replacement(tx) {
 		tx = StringTools.replace(StringTools.replace(tx,"${LED}",Std.string(window.devicePixelRatio * 6 | 0)),"${APP_DATE}",Cts.appVersion.substring(0,4));
-		if(Cts.isBig) {
+		if(dm_Device.isBig) {
 			return StringTools.replace(tx,"${IMG_DIM}","M");
 		} else {
 			return StringTools.replace(tx,"${IMG_DIM}","");
@@ -3121,14 +3173,14 @@ class view_Index {
 				}).klass("link").add(Cts.mkLed(false));
 			}
 		};
-		let leds = Cts.isMobilV ? [dm_Ui.Q("tr").adds(dm_It.range(5).map(function(i) {
+		let leds = dm_Device.isMobilV ? [dm_Ui.Q("tr").adds(dm_It.range(5).map(function(i) {
 			return dm_Ui.Q("td").add(mkLed(i));
 		}).to()),dm_Ui.Q("tr").adds(dm_It.range(5,10).map(function(i) {
 			return dm_Ui.Q("td").add(mkLed(i));
 		}).to())] : [dm_Ui.Q("tr").adds(dm_It.range(10).map(function(i) {
 			return dm_Ui.Q("td").add(mkLed(i));
 		}).to())];
-		let module = Cts.isMobilV ? 2 : 3;
+		let module = dm_Device.isMobilV ? 2 : 3;
 		let trs = [];
 		let picts = Loader.getPicts();
 		let tr = dm_Ui.Q("tr");
@@ -3653,6 +3705,12 @@ var Bool = Boolean;
 var Class = { };
 var Enum = { };
 js_Boot.__toStr = ({ }).toString;
+dm_Device.isMobil = dm_Device.isMobilf();
+dm_Device.isMobilH = dm_Device.isMobilHf();
+dm_Device.isMobilV = dm_Device.isMobil ? !dm_Device.isMobilH : false;
+dm_Device.pixelRatio = window.devicePixelRatio;
+dm_Device.isBig = dm_Device.pixelRatio > 1;
+dm_Device.screen = dm_Device.screenf();
 Cts.appName = "DmPuzzle";
 Cts.appVersion = "202012";
 Cts.storeKey = Cts.appName + "__data";
@@ -3661,14 +3719,9 @@ Cts.mediumDim = new dm_Dimension(8,6);
 Cts.expertDim = new dm_Dimension(12,9);
 Cts.partsN = 7;
 Cts.foot = dm_Ui.Q("table").klass("main").add(dm_Ui.Q("tr").add(dm_Ui.Q("td").add(dm_Ui.Q("hr")))).add(dm_Ui.Q("tr").add(dm_Ui.Q("td").style("text-align: right;color:#808080;font-size:x-small;").html("- © ºDeme. " + Cts.appName + " (" + Cts.appVersion + ") -")));
-Cts.isMobil = Cts.isMobilf();
-Cts.isMobilH = Cts.isMobilHf();
-Cts.isMobilV = Cts.isMobil ? !Cts.isMobilH : false;
-Cts.isBig = window.devicePixelRatio > 1;
-Cts.screen = Cts.screenf();
 Cts.defaultPicture = Cts.mkDefaultPicture();
-Cts.boardDim = Cts.isMobil ? Cts.isMobilH ? new dm_Dimension(Cts.screen.w * 0.7 | 0,Cts.screen.h * 0.45 | 0) : new dm_Dimension(Cts.screen.w * 0.9 | 0,Cts.screen.h * 0.70 | 0) : new dm_Dimension(Cts.screen.w * 0.80 | 0,Cts.screen.h * 0.6 | 0);
-Cts.jigsawVal = Cts.isMobilH ? Cts.boardDim.h * 0.7 * 4 / 3 : Cts.isMobilV ? Cts.boardDim.w * 0.7 : Cts.boardDim.w / 2;
+Cts.boardDim = dm_Device.isMobil ? dm_Device.isMobilH ? new dm_Dimension(dm_Device.screen.w * 0.7 | 0,dm_Device.screen.h * 0.45 | 0) : new dm_Dimension(dm_Device.screen.w * 0.9 | 0,dm_Device.screen.h * 0.70 | 0) : new dm_Dimension(dm_Device.screen.w * 0.80 | 0,dm_Device.screen.h * 0.6 | 0);
+Cts.jigsawVal = dm_Device.isMobilH ? Cts.boardDim.h * 0.7 * 4 / 3 : dm_Device.isMobilV ? Cts.boardDim.w * 0.7 : Cts.boardDim.w / 2;
 DateTools.DAY_SHORT_NAMES = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 DateTools.DAY_NAMES = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 DateTools.MONTH_SHORT_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -3841,7 +3894,7 @@ I18n.lang = "es";
 Loader.pictsGroup = 0;
 Loader.picts = [new data_Picture(I18n._("Lake"),"lake","Susanne Jutzeler","https://pixabay.com/photos/tr%C3%BCebsee-titlis-switzerland-5337646/"),new data_Picture("Himalaya","himalaya","David Mark","https://pixabay.com/photos/ama-dablam-himalaya-mountain-peak-2064522/"),new data_Picture(I18n._("Boat"),"boat","Quang Le","https://pixabay.com/photos/sunrise-boat-rowing-boat-nobody-1014712/"),new data_Picture(I18n._("River"),"river","Ian Turnell","https://www.pexels.com/photo/" + "body-of-water-between-green-leaf-trees-709552/"),new data_Picture(I18n._("Field"),"field","Jorg Peter","https://pixabay.com/photos/landscape-autumn-twilight-mountains-615428/"),new data_Picture(I18n._("Desert"),"desert","Jorg Peter","https://pixabay.com/photos/desert-morocco-sand-dune-dry-1270345/"),new data_Picture(I18n._("Flowers"),"flowers","Cooper Hewitt","https://www.si.edu/object/drawing:chndm_1975-73-1-2?" + "page=1&edan_q=draws&edan_fq%5B0%5D=media_usage:" + "CC0&oa=1&destination=/search/collection-images&" + "searchResults=1&id=chndm_1975-73-1-2"),new data_Picture(I18n._("Railway"),"railway","DarkmoonArt_de","https://pixabay.com/photos/locomotive-clock-steampunk-industry-2821169/"),new data_Picture(I18n._("Journey"),"journey","Dariusz Sankowski","https://pixabay.com/photos/journey-adventure-photo-map-old-1130732/"),new data_Picture(I18n._("Typewriter"),"typewriter","Devanath","https://pixabay.com/photos/typewriter-vintage-old-1248088/"),new data_Picture(I18n._("Literature"),"literature","Ylanite Koppens","https://pixabay.com/photos/literature-library-knowledge-3091212/"),new data_Picture(I18n._("Ring"),"ring","Ylanite Koppens","https://pixabay.com/photos/paper-page-ring-romantic-love-3061485/"),new data_Picture(I18n._("Lottery"),"lottery","ºDeme","img/pictures/lotery.png"),new data_Picture(I18n._("Dices"),"dices","Erik Stein","https://pixabay.com/illustrations/cube-random-luck-eye-numbers-1655118/"),new data_Picture(I18n._("Cards"),"cards","PDPics","https://pixabay.com/photos/card-game-game-cards-black-white-167051/"),new data_Picture(I18n._("Roulette"),"roulette","Greg Montani","https://pixabay.com/photos/luck-lucky-number-13-roulette-839035/"),new data_Picture(I18n._("Slots"),"slots","Aidan Howe","https://pixabay.com/photos/slots-slot-slot-machine-5012428/"),new data_Picture(I18n._("Market"),"market","Gino Crescoli","https://pixabay.com/illustrations/dices-over-newspaper-profit-2656028/"),new data_Picture(I18n._("Girl"),"girl","The Retrox","https://hipwallpaper.com/view/oQ0YHj"),new data_Picture(I18n._("School"),"school","JakubAnitka","https://hipwallpaper.com/view/oQ0YHj"),new data_Picture(I18n._("Zap"),"zap","Andrew Martin","https://pixabay.com/illustrations/zap-comic-comic-book-fight-1601678/"),new data_Picture(I18n._("Internet"),"internet","OpenClipart-Vectors","https://pixabay.com/vectors/buying-cartoon-comic-2022595/"),new data_Picture(I18n._("Pen"),"pen","Willian Yuki Fujii Memmo","https://pixabay.com/illustrations/" + "turn-pen-manga-anime-digital-design-976930/"),new data_Picture(I18n._("Couple"),"couple","01lifeleft","https://pixabay.com/illustrations/" + "chibi-anime-cute-manga-character-2380489/"),new data_Picture(I18n._("Pocket"),"pocket","anncapictures","https://pixabay.com/photos/pocket-watch-time-of-sand-time-1637393/"),new data_Picture(I18n._("Hourglass"),"hourglass","anncapictures","https://pixabay.com/photos/hourglass-clock-time-period-hours-2910948/"),new data_Picture(I18n._("Alarm Clock"),"alarmClock","Free-Photos","https://pixabay.com/photos/desk-book-candle-clock-table-1148994/"),new data_Picture(I18n._("Office"),"office","Free-Photos","https://www.pexels.com/photo/blur-business-clock-composition-364671/"),new data_Picture(I18n._("Watch"),"watch","Free-Photos","https://pixabay.com/photos/watch-time-clock-hours-minutes-690288/"),new data_Picture(I18n._("Monumental"),"monumental","Tomasz Mikołajczyk","https://pixabay.com/photos/clock-monument-clock-shield-time-2050857/"),new data_Picture(I18n._("Corridor"),"corridor","Parker_West","https://pixabay.com/illustrations/" + "science-fiction-scifi-corridor-3334826/"),new data_Picture(I18n._("Surgery"),"surgery","alan9187","https://pixabay.com/photos/sci-fi-surgery-room-2992797/"),new data_Picture(I18n._("Alien"),"alien","alan9187","https://pixabay.com/photos/sci-fi-science-fiction-fantasy-5501588/"),new data_Picture(I18n._("Spaceship"),"spaceship","Thomas Budach","https://pixabay.com/photos/science-fiction-cover-forward-2793428/"),new data_Picture(I18n._("Fractal"),"fractal","Carroll MacDonald","https://pixabay.com/illustrations/mandelbulb-fractal-sci-fi-1352250/"),new data_Picture(I18n._("Evolution"),"evolution","Pete Linforth","https://pixabay.com/illustrations/alien-pods-space-3d-spacecraft-679474/"),new data_Picture("Triangular","triangular","midhunhk","https://hipwallpaper.com/view/oQ0YHj"),new data_Picture("Reggae","reggae","zOnk.oNe","https://hipwallpaper.com/view/cXwLaI"),new data_Picture("X","x","dedeme","https://www.deviantart.com/dedeme/art/minimalCross-0-701573926"),new data_Picture(I18n._("Look"),"look","dedeme","https://www.deviantart.com/dedeme/art/Motherboard-3-701574182"),new data_Picture(I18n._("Reflections"),"reflections","Enrique Meseguer","https://pixabay.com/illustrations/" + "fractal-light-fractal-flower-bud-1672982/"),new data_Picture(I18n._("Hexagonal"),"hexagonal","Magic Creative","https://pixabay.com/illustrations/hex-hexagonal-abstract-modern-675576/"),new data_Picture(I18n._("Spider"),"spider","Christine Trewer","https://pixabay.com/photos/spider-tarantula-arachnophobia-1772769/"),new data_Picture(I18n._("Bats"),"bats","jplenio","https://pixabay.com/photos/halloween-tree-silhouette-moon-fog-4582988/"),new data_Picture(I18n._("Ravens"),"ravens","Christine Sponchia","https://pixabay.com/photos/raven-bridge-horror-birds-animals-5426192/"),new data_Picture(I18n._("Owl"),"owl","cocoparisienne","https://pixabay.com/photos/thunderstorm-flash-weather-sky-2353703/"),new data_Picture(I18n._("Wolf"),"wolf","Pezibear","https://pixabay.com/illustrations/dog-wolf-yelp-moon-tree-night-647528/"),new data_Picture(I18n._("Cat"),"cat","cocoparisienne","https://pixabay.com/illustrations/" + "moon-moon-night-full-moon-romance-744184/"),new data_Picture(I18n._("Rose"),"rose","S. Hermann & F. Richter","https://pixabay.com/photos/heart-key-rose-herzchen-love-1809653/"),new data_Picture(I18n._("Keys"),"keys","Florian Berger","https://pixabay.com/photos/key-colorful-matching-number-74534/"),new data_Picture(I18n._("Tied"),"tied","ongerdesign","https://pixabay.com/photos/key-cord-symbol-symbolism-knot-2091883/"),new data_Picture(I18n._("Car"),"car","J W.","https://pixabay.com/photos/car-keys-interior-leather-pkw-2653311/"),new data_Picture(I18n._("Security"),"security","Hans Braxmeier","https://pixabay.com/photos/key-safe-key-door-key-open-make-up-182918/"),new data_Picture(I18n._("Duplicate"),"duplicate","Arek Socha","https://pixabay.com/illustrations/" + "keys-solution-business-success-2114363/"),new data_Picture(I18n._("Archs"),"archs","DarkmoonArt_de","https://pixabay.com/illustrations/" + "palace-starry-sky-clouds-candles-4320416/"),new data_Picture(I18n._("Dragon"),"dragon","pendleburyannette","https://pixabay.com/illustrations/" + "dragon-fantasy-animal-fairytale-4417431/"),new data_Picture(I18n._("Streetlight"),"streetlight","enriquelopezgarre","https://pixabay.com/illustrations/fantasy-night-sea-moon-sky-4235607/"),new data_Picture(I18n._("Mushrooms"),"mushrooms","Susann Mielke","https://pixabay.com/illustrations/" + "mushrooms-mushroom-landscape-stones-1722297/"),new data_Picture(I18n._("Robots"),"robots","Stefan Keller","https://pixabay.com/illustrations/" + "robot-planet-moon-space-forward-2256814/"),new data_Picture(I18n._("Cauldron"),"cauldron","loulou Nash","https://pixabay.com/illustrations/" + "witch-magic-halloween-witchcraft-2146712/")];
 Loader.wins = [{ i : Icon.WIN0, lk : "https://commons.wikimedia.org/wiki/File:Happy_smiley_face.png"},{ i : Icon.WIN1, lk : "https://commons.wikimedia.org/wiki/File:" + "The_UserAlbum.com_social_network_logo.jpg"},{ i : Icon.WIN2, lk : "https://commons.wikimedia.org/wiki/File:Face-smile-2.png"},{ i : Icon.WIN3, lk : "https://commons.wikimedia.org/wiki/File:AMIGO.jpg"},{ i : Icon.WIN4, lk : "https://www.iconarchive.com/show/" + "crystal-clear-icons-by-everaldo/App-ksmiletris-smiley-icon.html"},{ i : Icon.WIN5, lk : "https://www.iconarchive.com/show/" + "oxygen-icons-by-oxygen-icons.org/Emotes-face-laugh-icon.html"},{ i : Icon.WIN6, lk : "https://www.iconarchive.com/show/" + "oxygen-icons-by-oxygen-icons.org/Emotes-face-angel-icon.html"}];
-Loader.audio = new Audio("sound/connect.mp3");
+Loader.audio = dm_Audio.mk("sound/connect.mp3",3);
 View.modalBoxDiv = dm_Ui.Q("div");
 View.bodyWg = dm_Ui.Q("td");
 haxe_crypto_Base64.CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
