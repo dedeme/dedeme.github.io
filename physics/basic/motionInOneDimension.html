@@ -1,0 +1,685 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="ºDeme" />
+  <title>Motion in One Dimension</title>
+	<script type="text/javascript"
+    src="../../js/main.js"></script>
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+<body id="top" onload="main.init('../../', main.ex);">
+<table><tr>
+  <td><a href="units.html">Units</a></td>
+  <td><big>~</big></td>
+  <td><a href="index.html">Up</a></td>
+  <td><big>~</big></td>
+  <td><a href="gravityAndMechanicalEnergy.html">
+    Gravity and Mechanical Energy</a></td>
+</tr></table>
+<hr>
+<h1>Motion in One Dimension</h1>
+<hr>
+<table>
+<tr><td colspan="2"><a class="menu1" href="#frame-reference">
+  Frame of reference</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#displacement">
+  Distance and displacement</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#time">
+  Time</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#velocity">
+  Velocity and speed</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#acceleration">
+  Acceleration</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#graphics">
+  Graphics</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#equations">
+  Equations with constant acceleration</a></td></tr>
+<tr><td colspan="2"><a class="menu1" href="#final-exercises">
+  Exercises</a></td></tr>
+</table>
+<hr>
+
+<h2 id="frame-reference">Frame of reference
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  When we start a calculation we choose a frame of reference.<br>
+  As the object of study in this chapter is the motion in one dimension,
+  this frame only define a value '0' (origin) and a positive direction (usually
+  to the right).
+  Higher values are on the positive direction and lower values on the negative
+  one.
+</p>
+<h2 id="displacement">Distance and displacement
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  <dl>
+  <dt><i>distance</i> = Space covered</dt><dd>
+    <ul>
+      <li>It does not have direction (It is a scalar)</li>
+      <li>Measured in meters (m).</li>
+    </ul>
+    </dd>
+  <dt><i>displacement</i> = The shortest distance between the starting and the
+    end point</dt><dd>
+    <ul>
+    <li>It has direction (It is a vector)</li>
+    <li>Measured in meters (m). If its value is positive, it means the direction is
+    to the positive one. If it is negative, to the negative. If it
+    is zero, it means not displacement at all.</li>
+    </ul>
+    </dd>
+  </dl>
+</p>
+<h2 id="time">Time
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  In this level (basic) we use the Newtonian concept of time.<br>
+  Time will be measured in seconds (s)
+</p>
+<h2 id="velocity">Velocity and speed
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  <i>velocity</i> = Velocity is the rate of change of position.<br>
+  <i>instantaneous velocity</i> = Instantaneous velocity is the velocity of
+  a body at a specific instant in time.
+</p>
+<h3>Average velocity</h3>
+<table><tr>
+  <td class="frame">
+  $$v = \frac{\Delta x}{\Delta t} = m \cdot s^{-1}$$
+  </td>
+</tr></table>
+<p>
+  $v$ = average velocity<br>
+  $x$ = desplacement<br>
+  $t$ = time
+</p>
+<p>
+  It is a vector and its values (positive or negative) must be read as it was
+  indicated for the displacement.
+</p>
+<h3>Avergae speed</h3>
+<table><tr>
+  <td class="frame">
+  $$speed = \frac{d}{\Delta t} = m \cdot s^{-1}$$
+  </td>
+</tr></table>
+<p>
+  $d$ = distance<br>
+  $t$ = time
+</p>
+<p>
+  It is a scalar.
+</p>
+<h3>Exercises</h3>
+<p>
+  <a href="#ex-1">Exercise 1</a><br>
+  <a href="#ex-2">Exercise 2</a><br>
+  <a href="#ex-3">Exercise 3</a>
+</p>
+
+<h2 id="acceleration">Acceleration
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  Acceleration is the rate of change of velocity.
+</p>
+<table><tr>
+  <td class="frame">
+  $$a = \frac{\Delta v}{\Delta t} = m \cdot s^{-2}$$
+  </td>
+</tr></table>
+<p>
+  Since velocity is a vector, acceleration is also a vector.
+</p>
+<p>
+  Acceleration does not give information about velocity direction nor by
+  itself if an object is speeding up or slowing dawn.
+</p>
+<p>
+  In a "one dimension movement" the sign of acceleration and velocity should be
+  interpreted as:
+<p>
+  $v+$ and $a+ \Rightarrow$ Movement to right and speeding up<br>
+  $v+$ and $a- \Rightarrow$ Movement to right and slowing down<br>
+  $v-$ and $a+ \Rightarrow$ Movement to left and slowing down<br>
+  $v-$ and $a- \Rightarrow$ Movement to left and speeding up
+</p>
+<p>
+  <i>NOTE: Avoid the use of the term "deceleration" as negative acceleration,
+  because it usually means "slowing down" whereas a negative acceleration
+  can result in a speeded up movement.</i>
+</p>
+<h3>Exercises</h3>
+<p>
+  <a href="#ex-4">Exercise 4</a>
+</p>
+<h2 id="graphics">Graphics
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  $x=2$, $v = 0$, $a = 0$<br>
+  <img src="img/motionInOneDimension-graphics-1.png" class="frame" /><br>
+  $x_0=0$, $v = 1$, $a=0$<br>
+  <img src="img/motionInOneDimension-graphics-2.png" class="frame" /><br>
+  $x_0=100$, $v = -1$, $a=0$<br>
+  <img src="img/motionInOneDimension-graphics-3.png" class="frame" /><br>
+  $x_0=0$, $v_0 = 0$, $a=5$<br>
+  <img src="img/motionInOneDimension-graphics-4.png" class="frame" /><br>
+</p>
+<h2 id="equations">Equations with constant acceleration
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+</p>
+  <table><tr>
+  <td class="frame">
+  (1) $v_f = v_i + at$<br>
+  (2) $\Delta x = \dfrac{v_i + v_f}{2}t$<br>
+  (3) $\Delta x = v_i t + \dfrac{1}{2}at^2$<br>
+  (4) $v^2_f = v^2_i + 2a\Delta x$
+  </td>
+</tr></table>
+<p>
+  where<br>
+  $v_i =$ initial velocity ($m \cdot s^{-1}$) at $t =$ 0 $s$<br>
+  $v_f =$ final velocity ($m \cdot s^{-1}$) at time $t$<br>
+  $\Delta x =$ displacement ($m$)<br>
+  $t =$ time ($s$)<br>
+  $\Delta t =$ time interval ($s$)<br>
+  $a =$ acceleration ($m \cdot s^{-2}$)
+</p>
+<h3>Derivation of (1)</h3>
+<p>
+  $v_f = v_i + \Delta v = v_i + at$
+</p>
+<h3>Derivation of (2)</h3>
+<p>
+  $\Delta x = \bar v t = \dfrac{v_i + v_f}{2}t$
+</p>
+<h3>Derivation of (3)</h3>
+<p>
+  $\Delta x = \dfrac{v_i + v_f}{2}t
+    = \dfrac{v_i + v_i + at}{2}t
+    = \left(\dfrac{\color{red}{2}v_i}{\color{red}{2}} + \dfrac{at}{2}\right)t
+    = v_i t + \dfrac{1}{2}at^2$
+</p>
+<h3>Derivation of (4)</h3>
+<p>
+  $v_f = v_i + at \rightarrow t = \dfrac{v_f - v_i}{a}$<br>
+  $\Delta x = v_i t + \dfrac{1}{2}at^2
+    = v_i \left(\dfrac{v_f - v_i}{a}\right)
+      + \dfrac{1}{2}a\left(\dfrac{v_f - v_i}{a}\right)^2$<br>
+  $\Delta x = \dfrac{v_i v_f}{a}-\dfrac{v^2_i}{a}
+      + \dfrac{1}{2}a\left(\dfrac{v^2_f-2v_i v_f+v^2_i}{a^2}\right)
+    = \color{red}{\dfrac{v_i v_f}{a}} -\dfrac{v^2_i}{a}
+      + \dfrac{v^2_f}{2a} - \color{red}{\dfrac{v_i v_f}{a}}
+      + \dfrac{v^2_i}{2a}$<br>
+  $2a\Delta x = -2v^2_i + v^2_f+v^2_i$<br>
+  $v^2_f = v^2_i + 2a\Delta x$
+</p>
+<h3>Exercises</h3>
+<p>
+  <a href="#ex-5">Exercise 5</a><br>
+  <a href="#ex-6">Exercise 6</a><br>
+  <a href="#ex-7">Exercise 7</a><br>
+  <a href="#ex-8">Exercise 8</a><br>
+  <a href="#ex-9">Exercise 9</a><br>
+</p>
+<hr>
+<h2 id="final-exercises">Exercises
+  .<span class="top"><a href="#top"> Top </a></span>.</h2>
+<p>
+  <a href="#ex-1">Exercise 1</a><br>
+  <a href="#ex-2">Exercise 2</a><br>
+  <a href="#ex-3">Exercise 3</a><br>
+  <a href="#ex-4">Exercise 4</a><br>
+  <a href="#ex-4">Exercise 5</a><br>
+  <a href="#ex-4">Exercise 6</a><br>
+  <a href="#ex-7">Exercise 7</a><br>
+  <a href="#ex-8">Exercise 8</a><br>
+  <a href="#ex-9">Exercise 9</a><br>
+</p>
+<div id="ex-1"></div>
+<p></p>
+<div id="ex-2"></div>
+<p></p>
+<div id="ex-3"></div>
+<p></p>
+<div id="ex-4"></div>
+<p></p>
+<div id="ex-5"></div>
+<p></p>
+<div id="ex-6"></div>
+<p></p>
+<div id="ex-7"></div>
+<p></p>
+<div id="ex-8"></div>
+<p></p>
+<div id="ex-9"></div>
+<hr>
+<div class="copy"><a class="copy" href="https://creativecommons.org/licenses/by/4.0/">
+  - &copy; &deg;Deme. Units -</a></div>
+
+<!-- Exercises ------------------------------------------------------>
+<!-- 1 -------------------------------------------------------------->
+<div id="dfex-1">
+  x;n;2;5;1<br>
+  v0;n;3;6;2<br>
+  t;n=;!!x! * 1000 /(!!v0! * 60);1<br>
+  xm;n=;!!x!*1000;0<br>
+  ts;n=;!!t!*60;0<br>
+  xt;n=;!!xm! - !!xm!;0<br>
+  tt;n=;!!ts! + !!ts!;0<br>
+  v;n=;!!xt!/!!tt!;2<br>
+  d;n=;!!xm! + !!xm!;0<br>
+  s;n=;!!d!/!!tt!;2
+####
+  <p>
+    Peter walks from home !!x! km. in !!t! minutes. Then he turns around and
+    walks back along the same path, also in !!t! minutes.<br>
+    Calculate Peter's average velocity and average speed.
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    Walk out: $x_1$ = !!x! km.; $t_1$ = !!t! minutes.<br>
+    Walk back: $x_2$ = !!x! km.; $t_2$ = !!t! minutes.
+  </p>
+  <p>
+    <i>Set units</i>:<br>
+    $x_1 =$ !!x! $\times$ 1000 $=$ !!xm! $m$<br>
+    $t_1 =$ !!t! $\times$ 60 $=$ !!ts! $s$<br>
+    $x_2 =$ !!x! $\times$ 1000 $=$ !!xm! $m$<br>
+    $t_2 =$ !!t! $\times$ 60 $=$ !!ts! $s$
+  </p>
+  <p>
+    <i>Average velocity</i>:<br>
+    $\Delta x = x_1 - x_2 =$ !!xt! $m$<br>
+    $\Delta t = t_1 + t_2 =$ !!tt! $s$<br>
+    $v = \frac{\displaystyle \Delta x}{\displaystyle \Delta t} =$
+      <u>!!v!</u> $m \cdot s^{-1}$<br>
+  </p>
+  <p>
+    <i>Average speed</i>:<br>
+    $d = x_1 + x_2 =$ !!d! $m$<br>
+    $speed = \frac{\displaystyle d}{\displaystyle \Delta t}$ =
+      <u>!!s!</u> $m \cdot s^{-1}$<br>
+  </p>
+</div>
+
+<!-- 2 -------------------------------------------------------------->
+<div id="dfex-2">
+  diam;n;2000;5000;0<br>
+  v0;n;0.83;2.5;2<br>
+  r;n=;!!diam!/(2 * Math.PI);0<br>
+  t;n=;!!diam!/!!v0!;0<br>
+
+  #;r;n=;100;0<br>
+  #;t;n=;120;0<br>
+
+  speed;n=;!!r! * 2 * Math.PI / !!t!;2<br>
+  v;n=;Math.pow(!!r! * !!r! * 2, 0.5) / (!!t! / 4);2<br>
+####
+  <p>
+    <img src="img/motionInOneDimension-e2.png" class="frame" /><br>
+    A man runs around a circular track of radious !!r! $m$. It takes him !!t!
+    $s$ to complete a revolution of the track. If he runs at constant speed,
+    calculate:
+  </p>
+  <ol>
+    <li>His average speed.</li>
+    <li>His instantaneous velocity at point A.</li>
+    <li>His instantaneous velocity at point B.</li>
+    <li>His average velocity between points A and B.</li>
+    <li>His average velocity during a revolution.</li>
+  </ol>
+####
+  <p>
+    <i>Data</i>:<br>
+    $r = $ !!r! $m$<br>
+    $\Delta t =$ !!t! $s$
+  </p>
+  <p>
+    1. <i>Average speed</i>:<br>
+    $d = r \times 2\pi$<br>
+    $speed = \frac{\displaystyle d}{\displaystyle \Delta t} =
+      \frac{\displaystyle r \times 2\pi}{\displaystyle \Delta t}$ =
+      <u>!!speed!</u> $m \cdot s^{-1}$<br>
+  </p>
+  <p>
+    2. <i>Instantaneous velocity at A</i>:<br>
+    As man's speed is constant, if instantaneous velocity at point A is
+    <u>!!speed!</u> $m \cdot s^{-1}$ toward West.
+  </p>
+  <p>
+    3. <i>Instantaneous velocity at B</i>:<br>
+    As man's speed is constant, if instantaneous velocity at point B is
+    <u>!!speed!</u> $m \cdot s^{-1}$ toward South.
+  </p>
+  <p>
+    4. <i>Average velocity between A and B</i>:<br>
+    <img src="img/motionInOneDimension-e2b.png" class="frame" /><br>
+    $\Delta x = \sqrt{r^2 + r^2}$<br>
+    $\Delta t_4 = \frac{\displaystyle \Delta t}{\displaystyle 4}$<br>
+    $v = \frac{\displaystyle \Delta x}{\displaystyle \Delta t} =
+      \frac{\displaystyle \sqrt{r^2 + r^2}}{\displaystyle \Delta t_4} =$
+      <u>!!v!</u> $m \cdot s^{-1}$ toward Southwest.
+  </p>
+  <p>
+    5. <i>Average velocity after a revolution</i>:<br>
+    As distance is 0 in this case,<br>
+    $\Delta x = 0$ $m$ and<br>
+    $v = \frac{\displaystyle \Delta x}{\displaystyle \Delta t} =$
+      <u>0.00</u> $m \cdot s^{-1}$
+  </p>
+</div>
+<!-- 3 -------------------------------------------------------------->
+<div id="dfex-3">
+  ap;n;100;1000;0<br>
+  av;n;60;120;0<br>
+  d;n;30;60;0<br>
+  bp;n=;!!ap! + !!d!;0<br>
+  bv;n;60;120;0<br>
+  apm;n=;!!ap!*1000;0<br>
+  avm;n=;!!av!/3.6;2<br>
+  bpm;n=;!!bp!*1000;0<br>
+  bvm;n=;!!bv!/3.6;2<br>
+  dm;n=;!!bpm! - !!apm!;0<br>
+  ad;n=;!!dm!/(1+!!bvm!/!!avm!);2<br>
+  bd;n=;!!dm!/(1+!!avm!/!!bvm!);2<br>
+  x1;n=;!!apm! + !!ad!;2<br>
+  x2;n=;!!bpm! - !!bd!;2<br>
+  t1;n=;!!ad! / !!avm!;2<br>
+  t2;n=;!!bd! / !!bvm!;2
+####
+  <p>Two cars run at constat speed along the same road in opposite directions.
+  The car A is at the kilometer !!ap! and runs at !!av! $km/h$ and the
+  car B is at the kilometer !!bp! and runs at !!bv! $km/h$.</p>
+  <p>With these data calculate:</p>
+  <ol>
+    <li>The point where they will cross.</li>
+    <li>How long they will late to cross-over.</li>
+  </ol>
+####
+  <p>
+    <i>Data</i>:<br>
+    $x_A=$!!ap! $km = $ !!ap! $\times$ 1000 $=$ !!apm! $m$<br>
+    $v_A=$!!av! $km \cdot h^{-1} = $ !!av! / 3.6 $=$ !!avm! $m \cdot s^{-1}$<br>
+    $x_B=$!!bp! $km = $ !!bp! $\times$ 1000 $=$ !!bpm! $m$<br>
+    $v_B=$!!av! $km \cdot h^{-1} = $ !!bv! / 3.6 $=$ !!bvm! $m \cdot s^{-1}$<br>
+  </p>
+  <p>
+    <i>Formulation</i>:<br>
+    $d = x_B - x_A = $ !!dm! $m$<br>
+    $\Delta t = \frac{\displaystyle d}{\displaystyle speed} \rightarrow
+      \frac{\displaystyle {d_A}}{\displaystyle s_A} =
+      \frac{\displaystyle {d_B}}{\displaystyle s_B}$
+      ; cars have to cross at the same time.<br>
+    $d = d_A + d_B \rightarrow d_B = d - d_A$<br>
+    $\frac{\displaystyle {d_A}}{\displaystyle s_A} =
+      \frac{\displaystyle {d - d_A}}{\displaystyle s_B} \rightarrow
+      \frac{\displaystyle s_B}{\displaystyle s_A} d_A = d - d_A$<br>
+    $d = d_A + \frac{\displaystyle s_B}{\displaystyle s_A} d_A =
+      d_A (1 + \frac{\displaystyle s_B}{\displaystyle s_A})$<br>
+    $d_A = \frac{\displaystyle d}{\displaystyle 1 + s_B / s_A} = $
+      !!ad! $m$<br>
+    $d_B = \frac{\displaystyle d}{\displaystyle 1 + s_A / s_B} = $
+      !!bd! $m$ ; formulated in the same way as $d_A$.<br>
+  </p>
+  <p>
+    <i>Road cross point</i>:<br>
+    $x = x_A + d_A =$ <u>!!x1!</u> $m$ or<br>
+    $x = x_B - d_B =$ <u>!!x2!</u> $m$<br>
+  </p>
+  <p>
+    <i>Cross time</i>:<br>
+    $t = \frac{\displaystyle d_A}{\displaystyle s_A} =$ <u>!!t1!</u> $s$ or<br>
+    $t = \frac{\displaystyle d_B}{\displaystyle s_B} =$ <u>!!t2!</u> $s$<br>
+  </p>
+</div>
+<!-- 4 -------------------------------------------------------------->
+<div id="dfex-4">
+  v1;n;150;250;0<br>
+  dv01;n;50;150;0<br>
+  v2;n=;!!v1! + !!dv01!;0<br>
+  t1;n;5;25;0<br>
+  dv02;n;-50;-100;0<br>
+  v3;n=;!!v2! + !!dv02!;0<br>
+  t2;n;5;25;0<br>
+  it3;n;0.25;0.75;4<br>
+  t3;n=;!!t1! + !!t2! * !!it3!;0<br>
+  tt;n=;!!t1! + !!t2!;0<br>
+  dv1;n=;!!v2! - !!v1!;0<br>
+  a1;n=;!!dv1! / !!t1!;2<br>
+  dv2;n=;!!v3! - !!v2!;0<br>
+  a2;n=;!!dv2! / !!t2!;2<br>
+  dv3;n=;!!v3! - !!v1!;0<br>
+  a3;n=;!!dv3! / !!tt!;2<br>
+  t0;n=;!!t3! - !!t1!;0<br>
+  dv0;n=;!!a2! * !!t0!;2<br>
+  v4;n=;!!v2! + !!dv0!;2<br>
+  dv4;n=;!!v4! - !!v1!;2<br>
+  a4;n=;!!dv4! / !!t3!;2
+####
+  <p>
+    An airplane accelerates uniformly from an initial velocity of !!v1!
+    $m \cdot s^{-1}$ to a velocity of !!v2! $m \cdot s^{-1}$ in !!t1! seconds.
+    Then it accelerates uniformly to a final velocity of !!v3! $m \cdot s^{-1}$
+    in !!t2! seconds. Let the direction of motion be the positive direction.
+  </p>
+  <ol>
+    <li>Calculate the acceleration of the airplane during the first !!t1!
+    seconds.</li>
+    <li>Caluculate the acceleration of the airplane during the next !!t2!
+    seconds. </li>
+    <li>Caluculate the acceleration of the airplane the whole !!tt! seconds.
+    </li>
+    <li>Calculate the acceleration of the airplane during the first !!t3!
+    seconds.</li>
+  </ol>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v_1 =$ !!v1! $m \cdot s^{-1}$<br>
+    $v_2 =$ !!v2! $m \cdot s^{-1}$<br>
+    $v_3 =$ !!v3! $m \cdot s^{-1}$<br>
+    $t_1 =$ !!t1! $s$<br>
+    $t_2 =$ !!t2! $s$<br>
+    $t_T =$ !!tt! $s$<br>
+    $t_3 =$ !!t3! $s$<br>
+  </p>
+  <p>
+    <i>Acceleration during the first !!t1! seconds</i>:<br>
+    $\Delta v = v_2 - v_1 = $ !!dv1! $m \cdot s^{-1}$<br>
+    $\Delta t = t_1 = $ !!t1! $s$<br>
+    $a_1 = \frac{\displaystyle \Delta v}{\displaystyle \Delta t} =$
+      <u>!!a1!</u> $m \cdot s^{-2}$<br>
+  </p>
+  <p>
+    <i>Acceleration during the next !!t2! seconds</i>:<br>
+    $\Delta v = v_3 - v_2 = $ !!dv2! $m \cdot s^{-1}$<br>
+    $\Delta t = t_2 = $ !!t2! $s$<br>
+    $a_2 = \frac{\displaystyle \Delta v}{\displaystyle \Delta t} =$
+      <u>!!a2!</u> $m \cdot s^{-2}$<br>
+  </p>
+  <p>
+    <i>Acceleration during the whole !!tt! seconds</i>:<br>
+    $\Delta v = v_3 - v_1 = $ !!dv3! $m \cdot s^{-1}$<br>
+    $\Delta t = t_T =$ !!tt! $s$<br>
+    $a_W = \frac{\displaystyle \Delta v}{\displaystyle \Delta t} =$
+      <u>!!a3!</u> $m \cdot s^{-2}$<br>
+  </p>
+  <p>
+    <i>Acceleration during the first !!t3! seconds</i>:<br>
+    $\Delta t_0 = t_3 - t_1 =$ !!t0! $s$<br>
+    $\Delta v_0 = a_2 \times \Delta t_0 =$ !!dv0! $m \cdot s^{-1}$<br>
+    $v_0 = v_2 + \Delta v_0 =$ !!v4! $m \cdot s^{-1}$<br>
+    $\Delta v = v_0 - v_1 = $ !!dv4! $m \cdot s^{-1}$<br>
+    $\Delta t = t_3 = $ !!t3! $s$<br>
+    $a = \frac{\displaystyle \Delta v}{\displaystyle \Delta t} =$
+      <u>!!a4!</u> $m \cdot s^{-2}$
+  </p>
+</div>
+<!-- 5 -------------------------------------------------------------->
+<div id="dfex-5">
+  v0;n;5;15;0<br>
+  a;n;0.5;1.5;1<br>
+  t;n;5;15;0<br>
+  vf;n=;!!v0! + !!a! * !!t!;2<br>
+####
+  <p>
+    A car starts off at !!v0! $m \cdot s^{-1}$ and accelerates at !!a!
+    $m \cdot s^{-2}$ for 10 s. What is its final velocity?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v_i =$ !!v0! $m \cdot s^{-1}$<br>
+    $a =$ !!a! $m \cdot s^{-2}$<br>
+    $t =$ !!t! $s$<br>
+    $v_f =$ ? $m \cdot s^{-1}$
+  </p>
+  <p>
+    <i>Calculus</i>:<br>
+    $v_f = v_i + at =$ <u>!!vf!</u> $m \cdot s^{-1}$
+</div>
+<!-- 6 -------------------------------------------------------------->
+<div id="dfex-6">
+  a;n;0.5;1.5;1<br>
+  t;n;5;15;0<br>
+  x;n=;0.5 * !!a! * !!t! * !!t!<br>
+####
+  <p>
+    A train starts from rest, and accelerates at !!a! $m \cdot s^{-2}$ for
+    !!t! $s$. How far does it move?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $a =$ !!a! $m \cdot s^{-2}$<br>
+    $t =$ !!t! $s$<br>
+    $v_i=$ 0 $m \cdot s^{-1}$<br>
+    $\Delta x=$ ? $m$
+  </p>
+  <p>
+    <i>Calculus</i>:<br>
+    $\Delta x= v_i t + \dfrac{1}{2} at^2 =$ <u>!!x!</u> $m$
+  </p>
+</div>
+<!-- 7 -------------------------------------------------------------->
+<div id="dfex-7">
+  v;n;20;40;0<br>
+  t;n;5;15;0<br>
+  x;n=;!!v! * !!t!<br>
+####
+  <p>
+    A bus is going !!v! $m \cdot s^{-1}$ and stops in !!t! $s$. What is its
+    stopping distance for this speed?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v=$ !!v! $m \cdot s^{-1}$<br>
+    $t =$ !!t! $s$<br>
+    $\Delta x=$ ? $m$
+  </p>
+  <p>
+    <i>Calculus</i>:<br>
+    $\Delta x= v t =$ <u>!!x!</u> $m$
+  </p>
+</div>
+<!-- 8 -------------------------------------------------------------->
+<div id="dfex-8">
+  a;n;2;6;1<br>
+  vi;n;20;40;0<br>
+  t;n;5;20;0<br>
+  vf;n=;!!vi! + !!a! * !!t!;1<br>
+  xA;n=;(!!vi! + !!vf!) * !!t! / 2;2<br>
+  xB;n=;!!vi! * !!t! + 0.5 * !!a! * !!t! * !!t!;2<br>
+####
+  <p>
+    A motorcycle has a uniform acceleration of !!a! $m \cdot s^{-2}$ . Assume
+    the motorcycle has an initial velocity of !!vi! $m \cdot s^{-1}$ .
+    Determine the velocity and displacement at the end of !!t! s.
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $a=$ !!a! $m \cdot s^{-2}$<br>
+    $v_i=$ !!vi! $m \cdot s^{-1}$<br>
+    $t =$ !!t! $s$<br>
+    $v_f =$ ? $m \cdot s^{-1}$<br>
+    $\Delta x =$ ? $m$
+  </p>
+  <p>
+    <i>Calculus of $v_f$</i> :<br>
+    $v_f = v_i + a t =$ <u>!!vf!</u> $m \cdot s^{-1}$
+  </p>
+  <p>
+    <i>Calculus of $\Delta x$</i> :<br>
+    (1) $\Delta x = \dfrac {v_i + v_f}{2} t =$ <u>!!xA!</u> $m$<br>
+    (2) $\Delta x = v_i t + \dfrac {1}{2} a t =$ !!xB! $m$
+  </p>
+</div>
+<!-- 9 -------------------------------------------------------------->
+<div id="dfex-9">
+  vi;n;20;40;0<br>
+  a;n;-10;-20;2<br>
+  t;n;0.4;1;2<br>
+
+  #vi;n=;10;0<br>
+  #a;n=;-1.25;2<br>
+  #t;n=;0.5;2<br>
+
+  x1;n=;!!vi! * !!t!;2<br>
+
+  ix;n;15;45;2<br>
+  xc;n=;!!x1! + !!ix!;0<br>
+
+  #xc;n=;50;0<br>
+
+  x2;n=;(!!vi! * !!vi!) / (-2 * !!a!);2<br>
+  xt;n=;!!x1! + !!x2!;1<br>
+  r;=;!!xt! > !!xc! ? "" : "not"<br>
+####
+  <p>
+    A truck is travelling at a constant velocity of !!vi! $m \cdot s^{-1}$
+    when the driver sees a child !!xc! $m$ in front of him in the road. He
+    hits the brakes to stop the truck. The truck accelerates at a rate of
+    !!a! $m \cdot s^{-2}$  . His reaction time to hit the brakes
+    is !!t! seconds. Will the truck hit the child?
+  </p>
+####
+  <p>
+    <i>Data</i>:<br>
+    $v_i=$ !!vi! $m \cdot s^{-1}$<br>
+    $x_C =$ !!xc! $m$<br>
+    $a =$ !!a! $m \cdot s^{-2}$<br>
+    $t =$ !!t! $s$<br>
+  </p>
+  <p>
+    <i>Calculus of travelled distance before hitting brackes</i>:<br>
+    $\Delta x_1 = v_i t = $ !!x1! $m$
+  </p>
+  <p>
+    <i>Calculus of travelled distance until slowing down to 0</i>:<br>
+    $v^2_f = v^2_i + 2a\Delta x_2 \rightarrow
+      \Delta x_2 = \dfrac {v^2_f - v^2_i}{2a} =$ !!x2! $m$
+  <p>
+    <i>Calculus of total distance</i>:<br>
+    $\Delta x_T = \Delta x_1 + \Delta x_2 = $ !!xt! $m$<br>
+    <u>The truck will !!r! hit the child.</u>
+  </p>
+</div>
+
+</body>
+</html>

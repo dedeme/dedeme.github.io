@@ -1,2 +1,2 @@
 # dedeme.github.io
-Web pages
+GitHub pages
