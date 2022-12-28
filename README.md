@@ -1,2 +1,2 @@
-# github.io
+# dedeme.github.io
 Web pages
